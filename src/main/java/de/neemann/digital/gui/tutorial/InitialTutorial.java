@@ -17,7 +17,7 @@ import de.neemann.digital.draw.elements.PinException;
 import de.neemann.digital.draw.elements.VisualElement;
 import de.neemann.digital.draw.library.ElementNotFoundException;
 import de.neemann.digital.draw.model.ModelCreator;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.Settings;
 import de.neemann.digital.gui.components.CircuitComponent;
 import de.neemann.digital.gui.components.modification.ModifyInsertWire;
@@ -51,7 +51,7 @@ public class InitialTutorial extends JDialog implements CircuitComponent.Tutoria
         STEPS.add(new Step("tutorial5", (cc, mod, t) -> contains(mod, ModifyInsertWire.class) || isWorking(cc)));
         STEPS.add(new Step("tutorial6", (cc, mod, t) -> isWorking(cc)));
         STEPS.add(new Step("tutorial7", (cc, mod, t) -> {
-            Model model = t.main.getModel();
+            Model model = t.mainGui.getModel();
             if (model != null) {
                 model.addObserver(t);
                 return true;
@@ -59,15 +59,15 @@ public class InitialTutorial extends JDialog implements CircuitComponent.Tutoria
                 return false;
         }));
         STEPS.add(new Step("tutorial8", (cc, mod, t) -> outputIsHigh(t)));
-        STEPS.add(new Step("tutorial9", (cc, mod, t) -> t.main.getModel() == null));
+        STEPS.add(new Step("tutorial9", (cc, mod, t) -> t.mainGui.getModel() == null));
         STEPS.add(new Step("tutorial10", (cc, mod, t) -> isIONamed(cc, 1, t)));
         STEPS.add(new Step("tutorial11", (cc, mod, t) -> isIONamed(cc, 3, t)));
     }
 
-    private final Main main;
+    private final MainGui mainGui;
 
     private static boolean outputIsHigh(InitialTutorial t) {
-        Model model = t.main.getModel();
+        Model model = t.mainGui.getModel();
         if (model == null)
             return false;
         List<Node> nl = model.getNodes();
@@ -158,14 +158,14 @@ public class InitialTutorial extends JDialog implements CircuitComponent.Tutoria
     /**
      * Creates the tutorial dialog.
      *
-     * @param main the main class
+     * @param mainGui the main class
      */
-    public InitialTutorial(Main main) {
-        super(main, Lang.get("tutorial"), false);
-        this.main = main;
+    public InitialTutorial(MainGui mainGui) {
+        super(mainGui, Lang.get("tutorial"), false);
+        this.mainGui = mainGui;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
-        circuitComponent = main.getCircuitComponent();
+        circuitComponent = mainGui.getCircuitComponent();
         circuitComponent.setTutorialListener(this);
 
         addWindowListener(new WindowAdapter() {
@@ -190,7 +190,7 @@ public class InitialTutorial extends JDialog implements CircuitComponent.Tutoria
 
         pack();
 
-        final Point ml = main.getLocation();
+        final Point ml = mainGui.getLocation();
         setLocation(Math.max(0, ml.x - getWidth()), ml.y);
 
         stepIndex = -1;

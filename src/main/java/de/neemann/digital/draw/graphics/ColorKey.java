@@ -8,4 +8,4 @@ package de.neemann.digital.draw.graphics;
 /**
  * The identifiers for the different colors
  */
-public enum ColorKey {BACKGROUND, GRID, MAIN, DISABLED, WIRE, WIRE_HIGH, WIRE_LOW, WIRE_Z, WIRE_VALUE, WIRE_OUT, PINS, ERROR, PASSED, TESTCASE, ASYNC, HIGHLIGHT}
+public enum ColorKey {BACKGROUND, GRID, MAIN, SELECTED, DISABLED, WIRE, WIRE_HIGH, WIRE_LOW, WIRE_Z, WIRE_VALUE, WIRE_OUT, PINS, ERROR, PASSED, TESTCASE, ASYNC, HIGHLIGHT}

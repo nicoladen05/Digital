@@ -1693,7 +1693,7 @@
     <string name="key_bigEndian_tt">Use big endian byte order at import.</string>
 
     <string name="key_colorScheme">Color scheme</string>
-    <string name="key_colorScheme_DEFAULT">Normal</string>
+    <string name="key_colorScheme_DEFAULT">Light</string>
     <string name="key_colorScheme_DARK">Dark</string>
     <string name="key_colorScheme_COLOR_BLIND">Red/green colorblind</string>
     <string name="key_colorScheme_CUSTOM">User Defined</string>

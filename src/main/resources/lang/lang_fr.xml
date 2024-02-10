@@ -1699,7 +1699,7 @@ In the file howTo.md you can find more details about translations.
         broche précédente.
     </string>
     <string name="key_colorScheme">Thème de couleur</string>
-    <string name="key_colorScheme_DEFAULT">Normal</string>
+    <string name="key_colorScheme_DEFAULT">Light</string>
     <string name="key_colorScheme_DARK">Foncé</string>
     <string name="key_colorScheme_COLOR_BLIND">Deutéranopie</string>
     <string name="key_colorScheme_CUSTOM">Personnalisé</string>

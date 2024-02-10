@@ -9,7 +9,7 @@ import de.neemann.digital.analyse.TruthTable;
 import de.neemann.digital.analyse.expression.format.FormatToExpression;
 import de.neemann.digital.core.element.Keys;
 import de.neemann.digital.fsm.gui.FSMFrame;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.Settings;
 import de.neemann.digital.gui.components.AttributeDialog;
 import de.neemann.digital.gui.components.expression.ExpressionDialog;
@@ -46,7 +46,7 @@ public class ScreenShots {
     private static final int WIN_DX = 850;
     private static final int WIN_DY = 500;
     private static GraphicDialog graphic;
-    private static Main mainStatic;
+    private static MainGui mainGuiStatic;
 
     public static void main(String[] args) {
         Settings.getInstance().getAttributes().set(Keys.SETTINGS_EXPRESSION_FORMAT, FormatToExpression.UNICODE_NOAND);
@@ -123,7 +123,7 @@ public class ScreenShots {
         new GuiTester("../../main/dig/processor/Processor.dig", "examples/processor/Processor.dig")
                 .press(' ')
                 .delay(4000)
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     main.ensureModelIsStopped();
                     main.getWindowPosManager().closeAll();
                 }))
@@ -145,7 +145,7 @@ public class ScreenShots {
                 .press("SPACE")
                 .delay(500)
                 .press("control typed -", 1)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> main.getCircuitComponent().translateCircuit(-120, 0)))
                 .delay(500)
                 .press("F9")
@@ -207,10 +207,10 @@ public class ScreenShots {
                 .press("DOWN", 2)
                 .press("ENTER")
                 .delay(500)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> {
                             main.getCircuitComponent().translateCircuit(-40, -5);
-                            mainStatic = main;
+                            mainGuiStatic = main;
                             main.setSize(1024, 768);
                             main.setLocationRelativeTo(null);
                         }))
@@ -224,11 +224,11 @@ public class ScreenShots {
                     fsmFrame.loadFile(trafficLight);
                     fsmFrame.getContentPane().setPreferredSize(new Dimension(500, 400));
                     fsmFrame.pack();
-                    final Point location = mainStatic.getLocation();
+                    final Point location = mainGuiStatic.getLocation();
                     fsmFrame.setLocation(location.x + 500, location.y + 120);
                     fsmFrame.setAlwaysOnTop(true);
                     fsmFrame.setTitle(trafficLight.getName());
-                    mainStatic.requestFocus();
+                    mainGuiStatic.requestFocus();
                 }))
                 .add(new MainScreenShot("distribution/screenshot3.png"))
                 .add(new GuiTester.CloseTopMost())
@@ -256,40 +256,40 @@ public class ScreenShots {
         if (Settings.getInstance().get(Keys.SETTINGS_IEEE_SHAPES))
             shapeOffset = 1;
         new GuiTester()
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
                 // input
                 .press("F10")
                 .press("RIGHT", 5)
                 .press("DOWN", 2)
                 .press("RIGHT")
                 .press("DOWN", 2)
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .press("ENTER")
                 .add(new ClickAtCircuit(x, y, InputEvent.BUTTON1_MASK))
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 // input
                 .press("typed l")
                 .add(new ClickAtCircuit(x, y + SIZE * 2, InputEvent.BUTTON1_MASK))
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 // xor
                 .press("F10")
                 .press("RIGHT", 5)
                 .press("DOWN", 1)
                 .press("RIGHT")
                 .press("DOWN", 4)
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .press("ENTER")
                 .add(new ClickAtCircuit(x + SIZE * (5 + shapeOffset), y + SIZE, InputEvent.BUTTON1_MASK))
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 // output
                 .press("F10")
                 .press("RIGHT", 5)
                 .press("DOWN", 2)
                 .press("RIGHT")
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .press("ENTER")
                 .add(new ClickAtCircuit(x + SIZE * (9 + shapeOffset), y + SIZE, InputEvent.BUTTON1_MASK))
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 // wires
                 .add(new ClickAtCircuit(x, y - SIZE, InputEvent.BUTTON1_MASK))
                 .add(new ClickAtCircuit(x + SIZE * 2, y - SIZE, InputEvent.BUTTON1_MASK))
@@ -297,12 +297,12 @@ public class ScreenShots {
                 .add(new ClickAtCircuit(x + SIZE * 2, y + SIZE, InputEvent.BUTTON1_MASK))
                 .add(new ClickAtCircuit(x + SIZE * (5 + shapeOffset), y, InputEvent.BUTTON1_MASK))
                 .add(new ClickAtCircuit(x + SIZE * (7 + shapeOffset), y, InputEvent.BUTTON1_MASK))
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 // run circuit
                 .press(' ')
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .add(new ClickAtCircuit(x - SIZE, y - SIZE, InputEvent.BUTTON1_MASK))
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .press(' ')
                 // add labels
                 .add(new ClickAtCircuit(x - SIZE, y - SIZE, InputEvent.BUTTON3_MASK))
@@ -317,7 +317,7 @@ public class ScreenShots {
                 .press("F10")
                 .press("RIGHT", 4)
                 .press("DOWN", 1)
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .press("ENTER")
                 .delay(500)
                 .add(new GuiTester.WindowCheck<>(TableDialog.class, (gt, td) -> {
@@ -350,15 +350,15 @@ public class ScreenShots {
     private static void hierarchicalDesign() {
         ScreenShot.n = 20;
         new GuiTester("dig/test/docu/halfAdder.dig", "halfAdder.dig")
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
                 .press("control typed -", 4)
                 .delay(500)
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .execute();
         new GuiTester("dig/test/docu/fullAdder.dig", "fullAdder.dig")
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
                 .delay(500)
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .add(new TestInGUI.SetMouseToElement((v) -> v.equalsDescription(TestCaseElement.DESCRIPTION)))
                 .mouseClick(InputEvent.BUTTON3_MASK)
                 .delay(500)
@@ -394,9 +394,9 @@ public class ScreenShots {
                 .add(new ScreenShot<>(ValueTableDialog.class).useParent())
                 .execute();
         new GuiTester("dig/test/docu/rcAdder.dig", "rcAdder.dig")
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, w) -> w.setSize(WIN_DX, WIN_DY)))
                 .delay(500)
-                .add(new ScreenShot<>(Main.class))
+                .add(new ScreenShot<>(MainGui.class))
                 .add(new TestInGUI.SetMouseToElement((v) -> v.equalsDescription(TestCaseElement.DESCRIPTION)))
                 .mouseClick(InputEvent.BUTTON3_MASK)
                 .delay(500)
@@ -432,7 +432,7 @@ public class ScreenShots {
         @Override
         public void run(GuiTester guiTester) throws Exception {
             Window main = FocusManager.getCurrentManager().getActiveWindow();
-            while (!(main instanceof Main)) {
+            while (!(main instanceof MainGui)) {
                 main = (Window) main.getParent();
                 if (main == null)
                     throw new RuntimeException("Main not found!");
@@ -476,22 +476,22 @@ public class ScreenShots {
         }
     }
 
-    private static class ClickAtCircuit extends GuiTester.WindowCheck<Main> {
+    private static class ClickAtCircuit extends GuiTester.WindowCheck<MainGui> {
         private final int x;
         private final int y;
         private final int button;
 
         ClickAtCircuit(int x, int y, int button) {
-            super(Main.class);
+            super(MainGui.class);
             this.x = x;
             this.y = y;
             this.button = button;
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) throws Exception {
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) throws Exception {
             Point p = new Point(x, y);
-            SwingUtilities.convertPointToScreen(p, main.getCircuitComponent());
+            SwingUtilities.convertPointToScreen(p, mainGui.getCircuitComponent());
             guiTester.getRobot().mouseMove(p.x, p.y);
             if (button != 0) {
                 guiTester.mouseClickNow(button);

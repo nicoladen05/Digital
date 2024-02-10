@@ -2150,7 +2150,7 @@ In the file howTo.md you can find more details about translations.
         anterior.
     </string>
     <string name="key_colorScheme">Esquema de cores</string>
-    <string name="key_colorScheme_DEFAULT">Normal</string>
+    <string name="key_colorScheme_DEFAULT">Light</string>
     <string name="key_colorScheme_COLOR_BLIND">vermelho/verde para deficiência de cor</string>
     <string name="key_colorScheme_CUSTOM">Definido pelo usuário</string>
     <string name="menu_colorSchemePreset">Valor inicial</string>

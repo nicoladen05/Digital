@@ -13,7 +13,7 @@ import de.neemann.digital.core.element.Keys;
 import de.neemann.digital.data.Value;
 import de.neemann.digital.data.ValueTable;
 import de.neemann.digital.draw.elements.PinException;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.components.OrderMerger;
 import de.neemann.digital.lang.Lang;
 import de.neemann.digital.testing.parser.TestRow;
@@ -127,8 +127,8 @@ public class ScopeTrigger extends Node implements Element {
         signals.removeIf(signal -> !signal.isShowInGraph());
 
         JFrame m = model.getWindowPosManager().getMainFrame();
-        if (m instanceof Main) {
-            List<String> ordering = ((Main) m).getCircuitComponent().getCircuit().getMeasurementOrdering();
+        if (m instanceof MainGui) {
+            List<String> ordering = ((MainGui) m).getCircuitComponent().getCircuit().getMeasurementOrdering();
             new OrderMerger<String, Signal>(ordering) {
                 @Override
                 public boolean equals(Signal a, String b) {

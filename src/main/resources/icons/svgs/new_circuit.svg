@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M48 0L48 0L48 48L0 48L0 0L48 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="New File">
+    <path d="M48 0L48 0L48 48L0 48L0 0L48 0Z" id="New-File" fill="none" stroke="none" />
+    <g id="surface24629" transform="translate(8 3)" clip-path="url(#clip_1)">
+      <path d="M32 42L0 42L0 0L22 0L32 10L32 42Z" id="Shape" fill="#90CAF9" stroke="none" />
+      <path d="M30.5 11L21 11L21 1.5L30.5 11Z" id="Shape" fill="#E1F5FE" stroke="none" />
+      <path d="M32 23.6667L30.5 22.2135L27.3438 25.276L22.9948 24.6615L22.2344 28.9896L18.3542 31.0521L20.2865 35L18.3542 38.9479L22.2344 41.0104L22.4062 42L32 42L32 23.6667Z" id="Shape" fill="#64B5F6" stroke="none" />
+      <g id="layer6" transform="translate(1 13)">
+        <g id="g4672">
+          <g id="g4670">
+            <path d="M2 0L22.4286 0L22.4286 16L2 16L2 0Z" id="path4644" fill="#FFFF00" fill-opacity="0.2509804" stroke="#FFFF00" stroke-width="0.25" stroke-linecap="square" />
+            <path d="M1.78571 0L22.2143 0L22.2143 16L1.78571 16L1.78571 0Z" id="path4646" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square" />
+            <path d="M0 3.5C0 2.67157 0.671573 2 1.5 2C2.32843 2 3 2.67157 3 3.5C3 4.32843 2.32843 5 1.5 5C0.671573 5 0 4.32843 0 3.5Z" id="circle4660" fill="#0000B2" fill-rule="evenodd" stroke="#0000B2" stroke-width="1" stroke-linecap="square" />
+            <path d="M0 8.5C0 7.67157 0.671573 7 1.5 7C2.32843 7 3 7.67157 3 8.5C3 9.32843 2.32843 10 1.5 10C0.671573 10 0 9.32843 0 8.5Z" id="circle4662" fill="#0000B2" fill-rule="evenodd" stroke="#0000B2" stroke-width="1" stroke-linecap="square" />
+            <path d="M0 13.5C0 12.6716 0.671573 12 1.5 12C2.32843 12 3 12.6716 3 13.5C3 14.3284 2.32843 15 1.5 15C0.671573 15 0 14.3284 0 13.5Z" id="circle4664" fill="#0000B2" fill-rule="evenodd" stroke="#0000B2" stroke-width="1" stroke-linecap="square" />
+            <path d="M21 3.5C21 2.67157 21.6716 2 22.5 2C23.3284 2 24 2.67157 24 3.5C24 4.32843 23.3284 5 22.5 5C21.6716 5 21 4.32843 21 3.5Z" id="circle4666" fill="#B20000" fill-rule="evenodd" stroke="#B20000" stroke-width="1" stroke-linecap="square" />
+            <path d="M21 8.5C21 7.67157 21.6716 7 22.5 7C23.3284 7 24 7.67157 24 8.5C24 9.32843 23.3284 10 22.5 10C21.6716 10 21 9.32843 21 8.5Z" id="circle4668" fill="#B20000" fill-rule="evenodd" stroke="#B20000" stroke-width="1" stroke-linecap="square" />
+          </g>
+        </g>
+      </g>
+      <path d="M30.5 25L28.0312 27.3906L24.6302 26.9115L24.0365 30.2969L21 31.9115L22.5104 35L21 38.0885L24.0365 39.7031L24.6302 43.0885L28.0312 42.6094L30.5 45L32.9688 42.6094L36.3698 43.0885L36.9635 39.7031L40 38.0885L38.4896 35L40 31.9115L36.9635 30.2969L36.3698 26.9115L32.9688 27.3906L30.5 25Z" id="Shape" fill="#FBC02D" stroke="none" />
+    </g>
+  </g>
+</svg>

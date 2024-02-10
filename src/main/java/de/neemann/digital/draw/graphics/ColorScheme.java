@@ -5,6 +5,8 @@
  */
 package de.neemann.digital.draw.graphics;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import de.neemann.digital.core.element.ElementAttributes;
 import de.neemann.digital.core.element.Key;
 import de.neemann.digital.gui.Settings;
@@ -19,8 +21,9 @@ import java.util.Arrays;
 public final class ColorScheme {
 
     private static final ColorScheme DEFAULT_SCHEME = new Builder()
-            .set(ColorKey.BACKGROUND, Color.WHITE)
+            .set(ColorKey.BACKGROUND, new Color(255, 250, 250))
             .set(ColorKey.MAIN, Color.BLACK)
+            .set(ColorKey.SELECTED, new Color(208, 208, 208))
             .set(ColorKey.WIRE, Color.BLUE.darker())
             .set(ColorKey.WIRE_LOW, new Color(0, 142, 0))
             .set(ColorKey.WIRE_HIGH, new Color(102, 255, 102))
@@ -35,13 +38,20 @@ public final class ColorScheme {
             .set(ColorKey.DISABLED, Color.LIGHT_GRAY)
             .set(ColorKey.TESTCASE, new Color(180, 255, 180, 200))
             .set(ColorKey.ASYNC, new Color(255, 180, 180, 200))
+            .setTheme(FlatLightLaf.class.getName())
+            .setType(Type.LIGHT)
             .build();
 
     private static final ColorScheme DARK_SCHEME = new Builder(DEFAULT_SCHEME)
-            .set(ColorKey.BACKGROUND, Color.BLACK)
-            .set(ColorKey.MAIN, Color.GRAY)
-            .set(ColorKey.GRID, new Color(50, 50, 50))
+            .set(ColorKey.BACKGROUND, new Color(54, 54, 54))
+            .set(ColorKey.MAIN, new Color(220, 220, 220))
+            .set(ColorKey.SELECTED, new Color(52, 52, 52))
+            .set(ColorKey.GRID, new Color(79, 79, 79))
             .set(ColorKey.DISABLED, new Color(40, 40, 40))
+            .set(ColorKey.WIRE, new Color(52, 152, 219))
+            .set(ColorKey.HIGHLIGHT, new Color(120, 182, 231))
+            .set(ColorKey.WIRE_OUT, new Color(231, 77, 60))
+            .setType(Type.DARK)
             .build();
 
     private static final ColorScheme COLOR_BLIND_SCHEME = new Builder(DEFAULT_SCHEME)
@@ -112,7 +122,6 @@ public final class ColorScheme {
             }
             System.out.println(".build();");
         }
-
         private void set(ColorScheme newScheme) {
             if (scheme != null && !scheme.equals(newScheme)) {
                 scheme = newScheme;
@@ -126,7 +135,7 @@ public final class ColorScheme {
      * The key used to select the color map
      */
     public static final Key<ColorSchemes> COLOR_SCHEME =
-            new Key.KeyEnum<>("colorScheme", ColorSchemes.DEFAULT, ColorSchemes.values())
+            new Key.KeyEnum<>("colorScheme", ColorSchemes.DARK, ColorSchemes.values())
                     .setRequiresRepaint();
     /**
      * The key used to define the custom color map
@@ -137,7 +146,6 @@ public final class ColorScheme {
                     .setRequiresRepaint();
 
     private static ColorScheme instance = null;
-
     /**
      * @return the selected color map
      */
@@ -152,11 +160,37 @@ public final class ColorScheme {
     private static void updateInstance() {
         instance = Settings.getInstance().get(COLOR_SCHEME).getScheme();
     }
+    /**
+     * Theme types: used for macOS Title Bar Appearance
+     * <a href="https://developer.apple.com/documentation/appkit/nsappearancename">...</a>
+     */
+    public enum Type {
+        /**
+         * Theme Types
+         */
+        DARK("NSAppearanceNameDarkAqua"), LIGHT("NSAppearanceNameAqua");
+        private final String value;
+        Type(String value) {
+            this.value = value;
+        }
+
+        /**
+         * @return Aqua theme type
+         * */
+        public String getAquaTheme() {
+            return this.value;
+        }
+    }
 
     private final Color[] colors;
+    private final String theme;
+    private final Type themeType;
 
-    private ColorScheme(Builder builder) {
+
+    private ColorScheme(Builder builder, String theme, Type type) {
         colors = builder.colors;
+        this.theme = theme;
+        this.themeType = type;
     }
 
     /**
@@ -169,6 +203,31 @@ public final class ColorScheme {
         return colors[key.ordinal()];
     }
 
+    /**
+     * Returns the related FlatLAF theme class name
+     *
+     * @return the color
+     */
+    public String getTheme() {
+        return this.theme;
+    }
+
+    /**
+     * Returns the selected Aqua window theme
+     *
+     * @return the color
+     */
+    public String getAquaTheme() {
+        return themeType.getAquaTheme();
+    }
+    /**
+     * Returns the theme type
+     *
+     * @return the color
+     */
+    public Type getType() {
+        return themeType;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -188,11 +247,12 @@ public final class ColorScheme {
      */
     public static final class Builder {
         private final Color[] colors;
+        private Type type;
+        private String theme = FlatDarkLaf.class.getName();
 
         private Builder() {
             this.colors = new Color[ColorKey.values().length];
         }
-
         /**
          * Creates a new builder
          *
@@ -227,12 +287,32 @@ public final class ColorScheme {
         }
 
         /**
+         * Sets the theme
+         * @param className the FLatLAF class
+         * @return the color
+         */
+        public Builder setTheme(String className) {
+            this.theme = className;
+            return this;
+        }
+
+        /**
+         * Sets the theme type
+         * @param type whether the theme is light or dark
+         * @return this for chained calls
+         */
+        public Builder setType(Type type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
          * Builds the color scheme
          *
          * @return the color scheme
          */
         public ColorScheme build() {
-            return new ColorScheme(this);
+            return new ColorScheme(this, theme, type);
         }
 
         /**

@@ -8,7 +8,7 @@ package de.neemann.digital.gui.components.testing;
 import de.neemann.digital.core.element.ElementAttributes;
 import de.neemann.digital.core.element.Key;
 import de.neemann.digital.draw.elements.VisualElement;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.components.EditorFactory;
 import de.neemann.digital.lang.Lang;
 import de.neemann.digital.testing.TestCaseDescription;
@@ -62,10 +62,10 @@ public class TestCaseDescriptionEditor extends EditorFactory.LabelEditor<TestCas
                 try {
                     getAttributeDialog().fireOk();
                     VisualElement visualElement = TestCaseDescriptionEditor.this.getAttributeDialog().getVisualElement();
-                    Main main = getAttributeDialog().getMain();
-                    if (main != null) {
-                        TestCaseDescriptionDialog dialog = new TestCaseDescriptionDialog(main, data, visualElement);
-                        main.getWindowPosManager().register("testdata", dialog);
+                    MainGui mainGui = getAttributeDialog().getMain();
+                    if (mainGui != null) {
+                        TestCaseDescriptionDialog dialog = new TestCaseDescriptionDialog(mainGui, data, visualElement);
+                        mainGui.getWindowPosManager().register("testdata", dialog);
                         dialog.setVisible(true);
                     }
                 } catch (EditorParseException e1) {

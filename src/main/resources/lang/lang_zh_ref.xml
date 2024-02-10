@@ -1813,7 +1813,7 @@ In the file howTo.md you can find more details about translations.
     <string name="elem_Stop_pin_stop">A rising edge stops the simulation.</string>
     <string name="err_ROM_noFileGivenToLoad">There is no file name available for the automatic reload!</string>
     <string name="key_colorScheme">Color scheme</string>
-    <string name="key_colorScheme_DEFAULT">Normal</string>
+    <string name="key_colorScheme_DEFAULT">Light</string>
     <string name="key_colorScheme_DARK">Dark</string>
     <string name="key_colorScheme_COLOR_BLIND">Red/green colorblind</string>
     <string name="key_colorScheme_CUSTOM">User Defined</string>

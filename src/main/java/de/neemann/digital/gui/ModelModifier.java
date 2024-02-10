@@ -12,7 +12,7 @@ import de.neemann.digital.core.NodeException;
  * Modifier which can be used to modify the model while it is started.
  * <p>
  * Its used by the {@link de.neemann.digital.gui.remote.RemoteSever}. The remote server passes an instance to
- * the start method ({@link Main#createAndStartModel(boolean, ModelEvent, ModelModifier)}) to modify the model
+ * the start method ({@link MainGui#createAndStartModel(boolean, ModelEvent, ModelModifier)}) to modify the model
  * after its generation. It modifies the ROM node by copying the program to execute to the program memory.
  * <p>
  */

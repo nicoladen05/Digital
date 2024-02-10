@@ -2056,7 +2056,7 @@ Sin embargo, no se deben usar por encima de la línea del encabezado que contien
         anterior.
     </string>
     <string name="key_colorScheme">Esquema de color</string>
-    <string name="key_colorScheme_DEFAULT">Normal</string>
+    <string name="key_colorScheme_DEFAULT">Light</string>
     <string name="key_colorScheme_DARK">Oscuro</string>
     <string name="key_colorScheme_COLOR_BLIND">rojo/verde daltónico</string>
     <string name="key_colorScheme_CUSTOM">Definido por el usuario</string>

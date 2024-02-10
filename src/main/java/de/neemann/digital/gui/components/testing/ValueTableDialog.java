@@ -11,7 +11,7 @@ import de.neemann.digital.data.ValueTable;
 import de.neemann.digital.data.ValueTableModel;
 import de.neemann.digital.draw.elements.Circuit;
 import de.neemann.digital.draw.library.ElementLibrary;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.SaveAsHelper;
 import de.neemann.digital.gui.components.data.GraphDialog;
 import de.neemann.digital.lang.Lang;
@@ -47,10 +47,10 @@ public class ValueTableDialog extends JDialog {
     /**
      * Background color for passed tests
      */
-    static final Color PASSED_COLOR = new Color(200, 255, 200);
-    private static final Icon ICON_FAILED = IconCreator.create("testFailed.png");
-    private static final Icon ICON_PASSED = IconCreator.create("testPassed.png");
-    private static final Icon ICON_GRAPH = IconCreator.create("measurement-graph.png");
+    static final Color PASSED_COLOR = new Color(39, 174, 96);
+    private static final Icon ICON_FAILED = IconCreator.createSVG("test_fail");
+    private static final Icon ICON_PASSED = IconCreator.createSVG("test_pass");
+    private static final Icon ICON_GRAPH = IconCreator.createSVG("measurement_graph");
 
 
     private final ArrayList<ValueTableHolder> resultTableData;
@@ -189,9 +189,9 @@ public class ValueTableDialog extends JDialog {
                 if (r >= 0 && r < vtm.getRowCount() && valueTableHolder.testCaseDescription != null) {
                     TestRow row = vtm.getRow(r);
                     int testRow = row.getRow();
-                    if (owner instanceof Main && testRow >= 0) {
-                        Main main = (Main) owner;
-                        main.startSimulation(m -> new TestExecutor("", valueTableHolder.testCaseDescription, m).executeTo(testRow));
+                    if (owner instanceof MainGui && testRow >= 0) {
+                        MainGui mainGui = (MainGui) owner;
+                        mainGui.startSimulation(m -> new TestExecutor("", valueTableHolder.testCaseDescription, m).executeTo(testRow));
                     }
                 }
             }
@@ -223,7 +223,7 @@ public class ValueTableDialog extends JDialog {
 
                 switch (((Value) value).getState()) {
                     case NORMAL:
-                        comp.setBackground(Color.WHITE);
+                        comp.setBackground(new Color(0, 0, 0, 0));
                         break;
                     case FAIL:
                         comp.setBackground(FAILED_COLOR);

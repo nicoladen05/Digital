@@ -24,7 +24,7 @@ import de.neemann.digital.draw.shapes.CustomCircuitShapeType;
 import de.neemann.digital.draw.shapes.Drawable;
 import de.neemann.digital.draw.shapes.InputShape;
 import de.neemann.digital.draw.shapes.ShapeFactory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.Settings;
 import de.neemann.digital.gui.components.data.DummyElement;
 import de.neemann.digital.gui.components.modification.*;
@@ -61,13 +61,13 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
     /**
      * The delete icon, also used from {@link de.neemann.digital.gui.components.terminal.TerminalDialog}
      */
-    public static final Icon ICON_DELETE = IconCreator.create("delete.png");
+    public static final Icon ICON_DELETE = IconCreator.createSVG("delete");
     /**
      * The copy icon, also used from {@link de.neemann.digital.gui.components.terminal.TerminalDialog}
      */
-    public static final Icon ICON_COPY = IconCreator.create("edit-copy.png");
-    private static final Icon ICON_UNDO = IconCreator.create("edit-undo.png");
-    private static final Icon ICON_REDO = IconCreator.create("edit-redo.png");
+    public static final Icon ICON_COPY = IconCreator.createSVG("copy");
+    private static final Icon ICON_UNDO = IconCreator.createSVG("undo");
+    private static final Icon ICON_REDO = IconCreator.createSVG("redo");
     private static final ArrayList<Key> ATTR_LIST = new ArrayList<>();
 
     private static final double MAX_SCALE = 50;
@@ -111,7 +111,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
 
     private static final int DRAG_DISTANCE = (int) (SIZE2 * Screen.getInstance().getScaling());
 
-    private final Main parent;
+    private final MainGui parent;
     private final ElementLibrary library;
     private final HashSet<Drawable> highLighted;
     private final ToolTipAction deleteAction;
@@ -164,7 +164,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
      * @param library      the library used to edit the attributes of the elements
      * @param shapeFactory the shapeFactory used for copied elements
      */
-    public CircuitComponent(Main parent, ElementLibrary library, ShapeFactory shapeFactory) {
+    public CircuitComponent(MainGui parent, ElementLibrary library, ShapeFactory shapeFactory) {
         this.parent = parent;
         this.library = library;
         highLighted = new HashSet<>();
@@ -476,7 +476,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
     }
 
     private ToolTipAction createCopyAction(ShapeFactory shapeFactory) {
-        return new ToolTipAction(Lang.get("menu_copy"), ICON_COPY) {
+        return new ToolTipAction(Lang.get("menu_copy")) {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ArrayList<Movable> elements = getSelectedElements(shapeFactory);
@@ -610,7 +610,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
     /**
      * @return the main frame
      */
-    public Main getMain() {
+    public MainGui getMain() {
         return parent;
     }
 
@@ -910,7 +910,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
             if (newBufferRequired)
                 buffer = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().createCompatibleImage(getWidth(), getHeight());
 
-            Graphics2D gr2 = buffer.createGraphics();
+            Graphics2D gr2 = (Graphics2D) g;
 
             GraphicSwing gr = new GraphicSwing(gr2, (int) (2 / scaleX));
             gr.enableAntiAlias(antiAlias);
@@ -938,18 +938,18 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
 
             //System.out.println("repaint: " + time + "ms, "+scaleHasChanged);
 
-            graphicHasChangedFlag = false;
+            graphicHasChangedFlag = true;
         }
 
-        g.drawImage(buffer, 0, 0, null);
+//        g.drawImage(buffer, 0, 0, null);
 
         Graphics2D gr2 = (Graphics2D) g;
         AffineTransform oldTrans = gr2.getTransform();
-        gr2.transform(transform);
+//        gr2.transform(transform);
         GraphicSwing gr = new GraphicSwing(gr2, (int) (2 / scaleX));
         gr.enableAntiAlias(activeMouseController.drawables() < 200);
         activeMouseController.drawTo(gr);
-        gr2.setTransform(oldTrans);
+//        gr2.setTransform(oldTrans);
 
         lastScaleX = scaleX;
     }
@@ -1255,7 +1255,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             attributeDialog.dispose();
-                            new Main.MainBuilder()
+                            new MainGui.MainBuilder()
                                     .setParent(parent)
                                     .setFileToOpen(((ElementTypeDescriptionCustom) elementType).getFile())
                                     .setLibrary(library)
@@ -1287,7 +1287,7 @@ public class CircuitComponent extends JComponent implements ChangedListener, Lib
                                         .cleanupConcreteCircuit()
                                         .getCircuit();
 
-                                new Main.MainBuilder()
+                                new MainGui.MainBuilder()
                                         .setParent(parent)
                                         .setCircuit(concreteCircuit)
                                         .setLibrary(library)

@@ -293,7 +293,7 @@ Many thanks to the following persons for their help:
 * XinJun Ma ([@itviewer](https://github.com/itviewer)) has provided the Chinese translation.
 * Nicolas Maltais ([@maltaisn](https://github.com/maltaisn)) has provided the French translation.
 * Luca Cavallari ([@psiwray](https://github.com/psiwray)) has provided the Italian translation.
-
+* [Icons8](https://icons8.com/) for providing the material icons used in the remastered user interface.
 ## Additional Screenshots
 
 ![screnshot3](distribution/screenshot3.png)

@@ -30,7 +30,7 @@ import java.util.Iterator;
  */
 public class LibraryNode implements Iterable<LibraryNode> {
     private static final Logger LOGGER = LoggerFactory.getLogger(LibraryNode.class);
-    private static final Icon ICON_NOT_UNIQUE = IconCreator.create("testFailed.png");
+    private static final Icon ICON_NOT_UNIQUE = IconCreator.createSVG("test_fail");
 
     private final ArrayList<LibraryNode> children;
     private final String translatedName;
@@ -352,7 +352,7 @@ public class LibraryNode implements Iterable<LibraryNode> {
                 icon = setWideShapeFlagTo(
                         new VisualElement(description.getName())
                                 .setShapeFactory(shapeFactory)
-                ).createIcon(75);
+                ).createIcon(28);
             return icon;
         } else
             return ICON_NOT_UNIQUE;

@@ -2140,7 +2140,7 @@ However, they must not be used above the header line listing the signal names.&l
     <string name="key_layoutShapeDelta_tt">Used by the layout shape type. Sets the distance to the previous pin.
     </string>
     <string name="key_colorScheme">Color scheme</string>
-    <string name="key_colorScheme_DEFAULT">Normal</string>
+    <string name="key_colorScheme_DEFAULT">Light</string>
     <string name="key_colorScheme_DARK">Dark</string>
     <string name="key_colorScheme_COLOR_BLIND">Red/green colorblind</string>
     <string name="key_colorScheme_CUSTOM">User Defined</string>
