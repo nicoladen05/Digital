@@ -13,6 +13,7 @@ import de.neemann.digital.lang.Lang;
 import de.neemann.gui.ErrorMessage;
 import de.neemann.gui.Screen;
 import de.neemann.gui.ToolTipAction;
+import de.tobihxd.KeyBindSettingsPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -160,6 +161,7 @@ public class AttributeDialog extends JDialog {
             JTabbedPane tp = new JTabbedPane(JTabbedPane.TOP);
             for (EditorPanel ep : panels)
                 tp.addTab(Lang.get(ep.getLangKey()), ep.getScrollPane());
+            tp.add(new KeyBindSettingsPanel());
             getContentPane().add(tp);
         }
 

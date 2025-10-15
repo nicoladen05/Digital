@@ -1,0 +1,8 @@
+{
+  "AND": "A",
+  "NAND": "Shift+N",
+  "Run Simulation": "F5",
+  "Toggle Grid": "G",
+  "Zoom In": "Shift++",
+  "Zoom Out": "Shift+-"
+}
