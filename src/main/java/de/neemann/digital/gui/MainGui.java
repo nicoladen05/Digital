@@ -1397,7 +1397,7 @@ public final class MainGui extends JFrame implements ClosingWindowListener.Confi
                         circuitComponent.getCircuit().clearState();
                         SwingUtilities.invokeLater(() -> {
                             windowPosManager.closeAll();
-                            JOptionPane.showMessageDialog(Main.this, Lang.get("msg_frequency_N", frequency));
+                            JOptionPane.showMessageDialog(MainGui.this, Lang.get("msg_frequency_N", frequency));
                         });
                     } finally {
                         model.close();
@@ -1414,9 +1414,9 @@ public final class MainGui extends JFrame implements ClosingWindowListener.Confi
                 try {
                     model = new ModelCreator(getCircuitComponent().getCircuit(), library).createModel(false);
                     Statistics stats = new Statistics(model);
-                    new StatsDialog(Main.this, stats.getTableModel()).setVisible(true);
+                    new StatsDialog(MainGui.this, stats.getTableModel()).setVisible(true);
                 } catch (ElementNotFoundException | PinException | NodeException e) {
-                    new ErrorMessage(Lang.get("msg_couldNotCreateStats")).addCause(e).show(Main.this);
+                    new ErrorMessage(Lang.get("msg_couldNotCreateStats")).addCause(e).show(MainGui.this);
                 }
             }
         }.setToolTip(Lang.get("menu_stats_tt")).createJMenuItem());
@@ -1428,9 +1428,9 @@ public final class MainGui extends JFrame implements ClosingWindowListener.Confi
                     Model model = new ModelCreator(getCircuitComponent().getCircuit(), library).createModel(false);
                     ModelAnalyser ma = new ModelAnalyser(model);
                     int depth = ma.calcMaxPathLen();
-                    JOptionPane.showMessageDialog(Main.this, Lang.get("msg_maxPathLen", depth));
+                    JOptionPane.showMessageDialog(MainGui.this, Lang.get("msg_maxPathLen", depth));
                 } catch (ElementNotFoundException | PinException | NodeException | AnalyseException | BacktrackException e) {
-                    new ErrorMessage(Lang.get("msg_couldNotCalculateMaxPathLen")).addCause(e).show(Main.this);
+                    new ErrorMessage(Lang.get("msg_couldNotCalculateMaxPathLen")).addCause(e).show(MainGui.this);
                 }
             }
         }.setToolTip(Lang.get("menu_calcMaxPathLen_tt")).createJMenuItem());

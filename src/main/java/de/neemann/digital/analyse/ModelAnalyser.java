@@ -321,10 +321,10 @@ public class ModelAnalyser {
     public int calcMaxPathLen() throws PinException, BacktrackException, AnalyseException {
         LOGGER.debug("start to calculate the depth of the model...");
 
-        if (!Main.isExperimentalMode() && !modelContainsSwitches())
+        if (!MainGui.isExperimentalMode() && !modelContainsSwitches())
             CycleDetector.checkForCycles(inputs);
 
-        DependencyAnalyser da = new DependencyAnalyser(this);
+        PathLenAnalyser da = new PathLenAnalyser(this);
         return da.getMaxPathLen();
     }
 
@@ -345,7 +345,7 @@ public class ModelAnalyser {
         for (Signal s : inputs)
             tt.addVariable(s.getName());
 
-        if (!Main.isExperimentalMode() && !modelContainsSwitches())
+        if (!MainGui.isExperimentalMode() && !modelContainsSwitches())
             CycleDetector.checkForCycles(inputs);
 
         DependencyAnalyser da = new DependencyAnalyser(this);
