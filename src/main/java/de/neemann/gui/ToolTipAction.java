@@ -87,6 +87,27 @@ public abstract class ToolTipAction extends AbstractAction {
      * @param key the accelerator key
      * @return this for call chaining
      */
+    public ToolTipAction setAcceleratorSHIFTplus(char key) {
+        return setAccelerator(KeyStroke.getKeyStroke(key, InputEvent.SHIFT_DOWN_MASK));
+    }
+
+    /**
+     * Sets an accelerator to the action
+     *
+     * @param key the accelerator key
+     * @return this for call chaining
+     */
+    public ToolTipAction setAcceleratorSHIFTplus(String key) {
+        int keyCode = KeyStroke.getKeyStroke(key).getKeyCode();
+        return setAccelerator(KeyStroke.getKeyStroke(keyCode, InputEvent.SHIFT_DOWN_MASK));
+    }
+
+    /**
+     * Sets an accelerator to the action
+     *
+     * @param key the accelerator key
+     * @return this for call chaining
+     */
     public ToolTipAction setAcceleratorCTRLplus(char key) {
         return setAccelerator(KeyStroke.getKeyStroke(key, getCTRLMask()));
     }

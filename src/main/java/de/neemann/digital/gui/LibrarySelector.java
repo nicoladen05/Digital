@@ -93,8 +93,21 @@ public class LibrarySelector implements LibraryListener {
 
                 JMenuItem jMenuItem = insertAction.createJMenuItem();
 
-                if (node.getKey() != null) {
-                    insertAction.setAccelerator(node.getKey()).enableAcceleratorIn(main.getCircuitComponent());
+                if (node.hasKey()) {
+                    if (node.hasModifier()) {
+                        String modifier = node.getModifier();
+
+                        switch (modifier) {
+                            case "SHIFT":
+                                insertAction.setAcceleratorSHIFTplus(node.getKey()).enableAcceleratorIn(main.getCircuitComponent());
+                                break;
+                            case "CTRL":
+                                insertAction.setAcceleratorCTRLplus(node.getKey()).enableAcceleratorIn(main.getCircuitComponent());
+                                break;
+                        }
+                    } else {
+                        insertAction.setAccelerator(node.getKey()).enableAcceleratorIn(main.getCircuitComponent());
+                    }
                 }
 
                 parts.add(jMenuItem);

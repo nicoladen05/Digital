@@ -41,6 +41,7 @@ public class LibraryNode implements Iterable<LibraryNode> {
     private String toolTipText;
     private ImageIcon icon;
     private String key = null;
+    private String modifier = null;
     private ElementLibrary library;
     private LibraryNode parent;
     private boolean unique;
@@ -117,6 +118,15 @@ public class LibraryNode implements Iterable<LibraryNode> {
         return this;
     }
 
+    LibraryNode add(LibraryNode node, String key, String modifier) {
+        children.add(node);
+        node.key = key;
+        node.modifier = modifier;
+        node.parent = this;
+        node.setLibrary(library);
+        return this;
+    }
+
     LibraryNode add(ElementTypeDescription node) {
         add(new LibraryNode(node));
         return this;
@@ -127,8 +137,25 @@ public class LibraryNode implements Iterable<LibraryNode> {
         return this;
     }
 
+    LibraryNode add(ElementTypeDescription node, String key, String modifier) {
+        add(new LibraryNode(node), key, modifier);
+        return this;
+    }
+
+    public boolean hasKey() {
+        return this.key != null;
+    }
+
     public String getKey() {
         return this.key;
+    }
+
+    public boolean hasModifier() {
+        return this.modifier != null;
+    }
+
+    public String getModifier() {
+        return this.modifier;
     }
 
     /**
