@@ -142,18 +142,34 @@ public class LibraryNode implements Iterable<LibraryNode> {
         return this;
     }
 
+    /**
+     * Checks if the node as a key set
+     * @return true if a key is set
+     */
     public boolean hasKey() {
         return this.key != null;
     }
 
+    /**
+     * Gets the key of the node
+     * @return The key as a string
+     */
     public String getKey() {
         return this.key;
     }
 
+    /**
+     * Check if the node a s a modifier set
+     * @return true if a modifier is set
+     */
     public boolean hasModifier() {
         return this.modifier != null;
     }
 
+    /**
+     * Gets the modifier of the node
+     * @return The modifier as a string
+     */
     public String getModifier() {
         return this.modifier;
     }

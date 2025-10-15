@@ -181,7 +181,7 @@ public class ElementLibrary implements Iterable<ElementLibrary.ElementContainer>
                         .add(FlipflopD.DESCRIPTION, "D")
                         .add(FlipflopT.DESCRIPTION, "T")
                         .add(FlipflopJKAsync.DESCRIPTION, "J", "SHIFT")
-                        .add(FlipflopDAsync.DESCRIPTION,"D", "SHIFT")
+                        .add(FlipflopDAsync.DESCRIPTION, "D", "SHIFT")
                         .add(Monoflop.DESCRIPTION), "M")
                 .add(new LibraryNode(Lang.get("lib_memory"))
                         .add(new LibraryNode(Lang.get("lib_ram"))

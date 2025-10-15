@@ -35,6 +35,7 @@ public class LibrarySelector implements LibraryListener {
      *
      * @param library      the library to select elements from
      * @param shapeFactory The shape factory
+     * @param main         The main method creating this object
      */
     public LibrarySelector(ElementLibrary library, ShapeFactory shapeFactory, Main main) {
         this.main = main;
