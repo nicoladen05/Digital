@@ -21,6 +21,7 @@ In the file howTo.md you can find more details about translations.
   <string name="attr_help_tt">显示该组件的简介</string>
   <string name="attr_panel_primary">基础设置</string>
   <string name="attr_panel_secondary">高级设置</string>
+  <string name="attr_panel_keybinds">快捷键</string>
   <string name="btn_discard">忽略修改</string>
   <string name="btn_edit">编辑</string>
   <string name="btn_editFurther">继续编辑</string>

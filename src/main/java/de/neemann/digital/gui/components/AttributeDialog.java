@@ -161,7 +161,7 @@ public class AttributeDialog extends JDialog {
             JTabbedPane tp = new JTabbedPane(JTabbedPane.TOP);
             for (EditorPanel ep : panels)
                 tp.addTab(Lang.get(ep.getLangKey()), ep.getScrollPane());
-            tp.add(new KeyBindSettingsPanel());
+            tp.addTab(Lang.get("attr_panel_keybinds"),new KeyBindSettingsPanel());
             getContentPane().add(tp);
         }
 

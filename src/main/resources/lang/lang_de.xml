@@ -15,6 +15,7 @@
     <string name="attr_help_tt">Zeigt eine Beschreibung dieses Elements.</string>
     <string name="attr_panel_primary">Allgemein</string>
     <string name="attr_panel_secondary">Erweitert</string>
+    <string name="attr_panel_keybinds">Tastenkürzel</string>
     <string name="btn_discard">Verwerfen</string>
     <string name="btn_edit">Bearbeiten</string>
     <string name="btn_editFurther">Weiter bearbeiten</string>

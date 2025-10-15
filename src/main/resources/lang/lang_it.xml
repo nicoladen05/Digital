@@ -20,6 +20,7 @@ In the file howTo.md you can find more details about translations.
     <string name="attr_help_tt">Mostra una breve descrizione di questo elemento.</string>
     <string name="attr_panel_primary">Base</string>
     <string name="attr_panel_secondary">Avanzato</string>
+    <string name="attr_panel_keybinds">Scorciatoia</string>
     <string name="btn_discard">Scarta Modifiche</string>
     <string name="btn_edit">Modifica</string>
     <string name="btn_editFurther">Continua a modificare</string>

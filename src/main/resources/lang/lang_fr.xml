@@ -21,6 +21,7 @@ In the file howTo.md you can find more details about translations.
     <string name="attr_help_tt">Affiche une courte description de cet élément.</string>
     <string name="attr_panel_primary">Base</string>
     <string name="attr_panel_secondary">Avancé</string>
+    <string name="attr_panel_keybinds">Raccourci</string>
     <string name="btn_discard">Abandonner les modifications</string>
     <string name="btn_edit">Éditer</string>
     <string name="btn_editFurther">Continuer l'édition</string>
