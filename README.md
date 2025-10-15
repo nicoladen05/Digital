@@ -10,7 +10,7 @@ Digital is an easy-to-use digital logic designer and circuit simulator designed 
 
 ![screnshot2](distribution/screenshot2.png)
 
-## [Download](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip) and Installation ##
+## [Download](https://github.com/nicoladen05/Digital/releases/latest/download/Digital.zip) and Installation ##
 
 There is no installation required, just unpack the *Digital.zip* file, which is available
 for [download](https://github.com/nicoladen05/Digital/releases/latest/download/Digital.zip). On Linux start the shell
