@@ -70,7 +70,7 @@ The latest changes that have not yet been released are listed in the
 | NAnd              | SHIFT+A    |
 | Or                | O          |
 | NOr               | SHIFT+O    |
-| X                 | XOr        |
+| XOr               | X          |
 | XNOr              | SHIFT+X    |
 | Not               | N          |
 | Output            | O          |
@@ -79,7 +79,7 @@ The latest changes that have not yet been released are listed in the
 | Clock             | C          |
 | Button            | B          |
 | PullUp            | SHIFT+P    |
-| PullDown          | P<br>      |
+| PullDown          | P          |
 | RS-Flipflop       | R          |
 | Async RS-Flipflop | SHIFT+R    |
 | JK-Flipflop       | J          |
