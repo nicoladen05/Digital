@@ -4,6 +4,7 @@ This fork adds the following features:
 - New keyboard shortcuts for commonly used components. A list of all changed shortcuts can be found below.
 - Improved UI using [aidanwd4's fork](https://github.com/aidanwd4/Digital):
   - Modern UI
+  - Full dark mode support
   - Improved scaling on Windows
   - Menubar support on MacOS
 

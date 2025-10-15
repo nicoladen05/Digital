@@ -135,7 +135,7 @@ public final class ColorScheme {
      * The key used to select the color map
      */
     public static final Key<ColorSchemes> COLOR_SCHEME =
-            new Key.KeyEnum<>("colorScheme", ColorSchemes.DARK, ColorSchemes.values())
+            new Key.KeyEnum<>("colorScheme", ColorSchemes.DEFAULT, ColorSchemes.values())
                     .setRequiresRepaint();
     /**
      * The key used to define the custom color map
