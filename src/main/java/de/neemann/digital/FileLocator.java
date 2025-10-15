@@ -7,7 +7,7 @@ package de.neemann.digital;
 
 import de.neemann.digital.draw.library.ElementLibrary;
 import de.neemann.digital.gui.FileHistory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -101,13 +101,13 @@ public class FileLocator {
     /**
      * Configures the file locator with the given main
      *
-     * @param main the main class
+     * @param mainGui the main class
      * @return this for chained calls
      */
-    public FileLocator setupWithMain(Main main) {
-        if (main != null) {
-            setBaseFile(main.getBaseFileName());
-            setLibrary(main.getLibrary());
+    public FileLocator setupWithMain(MainGui mainGui) {
+        if (mainGui != null) {
+            setBaseFile(mainGui.getBaseFileName());
+            setLibrary(mainGui.getLibrary());
         }
         return this;
     }

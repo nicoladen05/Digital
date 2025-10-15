@@ -21,7 +21,7 @@ import de.neemann.digital.draw.library.ElementNotFoundException;
 import de.neemann.digital.draw.model.InverterConfig;
 import de.neemann.digital.draw.model.ModelCreator;
 import de.neemann.digital.draw.shapes.custom.CustomShapeDescription;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.components.table.ShowStringDialog;
 import de.neemann.digital.gui.components.testing.TestCaseDescriptionEditor;
 import de.neemann.digital.lang.Lang;
@@ -904,10 +904,10 @@ public final class EditorFactory {
                 public void actionPerformed(ActionEvent actionEvent) {
                     VisualElement ve = getAttributeDialog().getVisualElement();
                     Window p = getAttributeDialog().getDialogParent();
-                    if (ve != null && p instanceof Main) {
+                    if (ve != null && p instanceof MainGui) {
                         try {
                             getAttributeDialog().storeEditedValues();
-                            ElementTypeDescription d = ((Main) p).getCircuitComponent().getLibrary().getElementType(ve.getElementName());
+                            ElementTypeDescription d = ((MainGui) p).getCircuitComponent().getLibrary().getElementType(ve.getElementName());
                             PinDescriptions in = d.getInputDescription(elementAttributes);
                             InputSelectDialog dialog = new InputSelectDialog(getAttributeDialog(), in, inverterConfig);
                             if (dialog.showDialog()) {
@@ -1015,11 +1015,11 @@ public final class EditorFactory {
             buttons.add(new ToolTipAction(Lang.get("btn_edit")) {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
-                    Main main = getAttributeDialog().getMain();
-                    if (main != null) {
+                    MainGui mainGui = getAttributeDialog().getMain();
+                    if (mainGui != null) {
                         final ROMEditorDialog romEditorDialog;
                         try {
-                            CircuitComponent circuitComponent = main.getCircuitComponent();
+                            CircuitComponent circuitComponent = mainGui.getCircuitComponent();
                             Model model = new ModelCreator(circuitComponent.getCircuit(), circuitComponent.getLibrary()).createModel(false);
                             try {
                                 romEditorDialog = new ROMEditorDialog(

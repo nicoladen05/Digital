@@ -27,7 +27,7 @@ public class LibrarySelector implements LibraryListener {
     private JMenu componentsMenu;
     private InsertHistory insertHistory;
     private CircuitComponent circuitComponent;
-    private Main main;
+    private MainGui main;
 
     /**
      * Creates a new library selector.
@@ -37,7 +37,7 @@ public class LibrarySelector implements LibraryListener {
      * @param shapeFactory The shape factory
      * @param main         The main method creating this object
      */
-    public LibrarySelector(ElementLibrary library, ShapeFactory shapeFactory, Main main) {
+    public LibrarySelector(ElementLibrary library, ShapeFactory shapeFactory, MainGui main) {
         this.main = main;
         this.library = library;
         this.shapeFactory = shapeFactory;

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="53.64212px" height="53.64212px" viewBox="0 0 53.64212 53.64212" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M53.6421 0L53.6421 0L53.6421 53.6421L0 53.6421L0 0L53.6421 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="measurement-graph">
+    <path d="M53.6421 0L53.6421 0L53.6421 53.6421L0 53.6421L0 0L53.6421 0Z" id="measurement-graph" fill="none" stroke="none" />
+    <g id="g4679" transform="translate(-0.44291687 6.4116096)" clip-path="url(#clip_1)">
+      <g id="g4666">
+        <g id="path10" transform="translate(10.771652 2.8346481)">
+          <path d="M0 0L14.1725 0" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M13.6063 0.566929L13.6063 14.7394" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M14.1732 14.1732L28.3457 14.1732" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M27.7795 14.7394L27.7795 0.566929" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M28.3465 0L42.519 0" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+        </g>
+        <g id="path12" transform="translate(10.771652 22.677162)">
+          <path d="M0 0L14.1725 0" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M13.6063 0.566933L13.6063 14.7394" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M14.1732 14.1732L28.3457 14.1732" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+          <path d="M28.3465 14.1732L42.519 14.1732" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" />
+        </g>
+        <g id="path22" transform="translate(10.771652 19.842518)">
+          <path d="M0 0L42.5175 0" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+        </g>
+        <g id="path24" transform="translate(10.204727 0)">
+          <path d="M42.5197 40.2499L42.5197 0.566933" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+          <path d="M43.0844 0L0.566925 0" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+          <path d="M0 0.566933L0 40.2499" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+          <path d="M0.566925 39.685L43.0844 39.685" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+        </g>
+        <g id="path26" transform="translate(24.37796 0.5669327)">
+          <path d="M0 0L0 39.683" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+        </g>
+        <g id="path28" transform="translate(38.551193 0.5669327)">
+          <path d="M0 0L0 39.683" id="Line" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="2.267717 2.267717" />
+        </g>
+        <g id="g112" transform="translate(0 2.1259842)">
+          <g id="text108">
+            <g transform="translate(0, 3.284091)" fill="#FFFFFF" stroke="none" id="A">
+              <path d="M1.60341 13.175L0.347727 13.175L3.97955 3.28409L5.21591 3.28409L8.84773 13.175L7.59205 13.175L6.59716 10.3739L2.5983 10.3739L1.60341 13.175ZM2.975 9.31136L6.22045 9.31136L4.63636 4.84886L4.55909 4.84886L2.975 9.31136Z" />
+            </g>
+          </g>
+          <g id="text110" transform="translate(0.5669295 19.842524)">
+            <g transform="translate(0, 3.284091)" fill="#FFFFFF" stroke="none" id="B">
+              <path d="M1.19773 13.175L1.19773 3.28409L4.65568 3.28409Q5.6892 3.28409 6.36051 3.63906Q7.03182 3.99403 7.36023 4.59048Q7.68864 5.18693 7.68864 5.91136Q7.68864 6.54886 7.46406 6.9642Q7.23949 7.37955 6.87486 7.62102Q6.51023 7.8625 6.08523 7.97841L6.08523 8.075Q6.53921 8.10398 6.99801 8.39375Q7.45682 8.68352 7.76591 9.22443Q8.075 9.76534 8.075 10.5477Q8.075 11.2915 7.73693 11.8855Q7.39886 12.4795 6.6696 12.8273Q5.94034 13.175 4.77159 13.175L1.19773 13.175ZM2.39545 12.1125L4.77159 12.1125Q5.94517 12.1125 6.4402 11.6561Q6.93523 11.1997 6.93523 10.5477Q6.93523 10.0455 6.67926 9.61804Q6.4233 9.19063 5.95 8.93224Q5.47671 8.67386 4.82955 8.67386L2.39545 8.67386L2.39545 12.1125ZM2.39545 7.63068L4.61705 7.63068Q5.42841 7.63068 5.98864 7.16222Q6.54886 6.69375 6.54886 5.91136Q6.54886 5.25938 6.09489 4.80298Q5.64091 4.34659 4.65568 4.34659L2.39545 4.34659L2.39545 7.63068Z" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

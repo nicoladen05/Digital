@@ -29,7 +29,7 @@ import de.neemann.digital.fsm.State;
 import de.neemann.digital.fsm.Transition;
 import de.neemann.digital.fsm.gui.FSMFrame;
 import de.neemann.digital.gui.DigitalRemoteInterface;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.NumberingWizard;
 import de.neemann.digital.gui.Settings;
 import de.neemann.digital.gui.components.*;
@@ -53,7 +53,6 @@ import de.neemann.gui.ErrorMessage;
 import junit.framework.TestCase;
 
 import javax.swing.*;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.File;
@@ -89,7 +88,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.CloseTopMost())
                 .add(new CheckColorInCircuit(Driver.DESCRIPTION, 0, SIZE + SIZE2, (c) -> assertEquals(Style.ERROR.getColor(), c)))
 //                .ask("Is the driver output colored red?")
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -98,7 +97,7 @@ public class TestInGUI extends TestCase {
                 .press("SPACE")
                 .add(new CheckErrorDialog("short.dig", Lang.get("err_burnError")))
                 .add(new GuiTester.CloseTopMost())
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -109,7 +108,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.CloseTopMost())
                 .add(new CheckColorInCircuit(Driver.DESCRIPTION, 0, SIZE + SIZE2, (c) -> assertEquals(Style.ERROR.getColor(), c)))
 //                .ask("Is the driver output colored red?")
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -120,7 +119,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.CloseTopMost())
                 .add(new CheckColorInCircuit(Out.DESCRIPTION, SIZE * 2, 0, (c) -> assertEquals(Style.ERROR.getColor(), c)))
 //                .ask("Is the output circled red?")
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -129,7 +128,7 @@ public class TestInGUI extends TestCase {
                 .press("SPACE")
                 .add(new CheckErrorDialog(Lang.get("err_moreThanOneFastClock")))
                 .add(new GuiTester.CloseTopMost())
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -150,7 +149,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.CloseTopMost())
                 .add(new CheckColorInCircuit(Driver.DESCRIPTION, 0, SIZE + SIZE2, (c) -> assertEquals(Style.ERROR.getColor(), c)))
 //                .ask("Is the driver output colored red?")
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -163,7 +162,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.CloseTopMost())
                 .add(new CheckColorInCircuit(Driver.DESCRIPTION, 0, SIZE + SIZE2, (c) -> assertEquals(Style.ERROR.getColor(), c)))
 //                .ask("Is the driver output colored red?")
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .execute();
     }
 
@@ -178,7 +177,7 @@ public class TestInGUI extends TestCase {
                 .mouseMove(400, 200)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
                 .delay(500)
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     Circuit c = main.getCircuitComponent().getCircuit();
                     assertEquals(1, c.getElements().size());
                 }))
@@ -201,7 +200,7 @@ public class TestInGUI extends TestCase {
                 .mouseMove(400, 200)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
                 .delay(500)
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     Circuit c = main.getCircuitComponent().getCircuit();
                     assertEquals(1, c.getElements().size());
                     assertTrue(c.getElements().get(0).equalsDescription(Probe.DESCRIPTION));
@@ -224,7 +223,7 @@ public class TestInGUI extends TestCase {
                 }))
                 .add(new GuiTester.CloseTopMost())
                 .press("F2")
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(4, main.getCircuitComponent().getCircuit().getElements().size())))
                 .add(new GuiTester.CloseTopMost())
                 .add(new GuiTester.WindowCheck<>(TableDialog.class))
@@ -243,7 +242,7 @@ public class TestInGUI extends TestCase {
                 .press("TAB", 1)
                 .press("SPACE")
                 .delay(500)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(7, main.getCircuitComponent().getCircuit().getElements().size())))
                 .press("F9")
                 .delay(500)
@@ -473,7 +472,7 @@ public class TestInGUI extends TestCase {
                 .delay(1000)
                 .add(new GuiTester.WaitFor(4000, () -> {
                     Window activeWindow = FocusManager.getCurrentManager().getActiveWindow();
-                    return !(activeWindow instanceof Main || activeWindow instanceof TableDialog);
+                    return !(activeWindow instanceof MainGui || activeWindow instanceof TableDialog);
                 }))
                 .add(new GuiTester.CheckTextInWindow<>(JDialog.class, "Design fits successfully"))
                 .add(new GuiTester.CloseTopMost())
@@ -518,13 +517,13 @@ public class TestInGUI extends TestCase {
                 .mouseMove(300, 300)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
                 .mouseClick(InputEvent.BUTTON3_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(1, main.getCircuitComponent().getCircuit().getWires().size())))
                 .mouseMove(200, 200)
                 .press('s')
                 .mouseMove(250, 150)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(2, main.getCircuitComponent().getCircuit().getWires().size())))
                 .execute();
     }
@@ -549,7 +548,7 @@ public class TestInGUI extends TestCase {
                 .delay(500)
                 .add(new GuiTester.CloseTopMost())
                 .delay(500)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals('a', main.getModel().getOutput("akt").getValue())))
                 .execute();
     }
@@ -572,7 +571,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.WindowCheck<>(KeyboardDialog.class,
                         (gt, kb) -> kb.dispose()))
                 .delay(200)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> {
                             List<Terminal> n = main.getModel().findNode(Terminal.class);
                             assertEquals(1, n.size());
@@ -585,7 +584,7 @@ public class TestInGUI extends TestCase {
     public void testMoveSelectedComponent() {
         new GuiTester()
                 .mouseMove(110, 110)
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     final CircuitComponent cc = main.getCircuitComponent();
                     final VisualElement ve = new VisualElement(And.DESCRIPTION.getName())
                             .setShapeFactory(cc.getLibrary().getShapeFactory());
@@ -596,7 +595,7 @@ public class TestInGUI extends TestCase {
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
                 .mouseMove(400, 400)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     final Circuit c = main.getCircuitComponent().getCircuit();
                     assertEquals(1, c.getElements().size());
                     final Vector pos = c.getElements().get(0).getPos();
@@ -610,7 +609,7 @@ public class TestInGUI extends TestCase {
     public void testShortcutsPlusMinus() {
         new GuiTester()
                 .mouseMove(100 + SIZE * 2, 100 + SIZE * 2)
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     final CircuitComponent cc = main.getCircuitComponent();
                     final VisualElement ve = new VisualElement(And.DESCRIPTION.getName())
                             .setShapeFactory(cc.getLibrary().getShapeFactory());
@@ -620,7 +619,7 @@ public class TestInGUI extends TestCase {
                 .mouseMove(100, 100)
                 .press("PLUS")
                 .press("PLUS")
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     final Circuit c = main.getCircuitComponent().getCircuit();
                     assertEquals(1, c.getElements().size());
                     assertEquals(4, (int) c.getElements().get(0).getElementAttributes().get(Keys.INPUT_COUNT));
@@ -628,7 +627,7 @@ public class TestInGUI extends TestCase {
                 }))
                 .press("MINUS")
                 .press("MINUS")
-                .add(new GuiTester.WindowCheck<>(Main.class, (gt, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (gt, main) -> {
                     final Circuit c = main.getCircuitComponent().getCircuit();
                     assertEquals(1, c.getElements().size());
                     assertEquals(2, (int) c.getElements().get(0).getElementAttributes().get(Keys.INPUT_COUNT));
@@ -644,19 +643,19 @@ public class TestInGUI extends TestCase {
                 .press("DOWN", "RIGHT", "ENTER")
                 .mouseMove(100, 150)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(1, main.getCircuitComponent().getCircuit().getElements().size())))
                 .mouseMove(200, 150)
                 .press('l')
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(2, main.getCircuitComponent().getCircuit().getElements().size())))
                 .mouseMove(80, 130)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
                 .press("control typed d")
                 .mouseMove(100, 250)
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(3, main.getCircuitComponent().getCircuit().getElements().size())))
                 .execute();
     }
@@ -676,7 +675,7 @@ public class TestInGUI extends TestCase {
                 .add(new GuiTester.WindowCheck<>(JDialog.class,
                         (guiTester, window) -> assertEquals(Lang.get("win_stateChanged"), window.getTitle())))
                 .press("ESCAPE")
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(1, main.getCircuitComponent().getCircuit().getElements().size())))
 
                 // press edit further
@@ -686,7 +685,7 @@ public class TestInGUI extends TestCase {
                         c -> c instanceof JButton && ((JButton) c).getText().equals(Lang.get("btn_editFurther"))))
                 .press("SPACE")
                 .delay(100)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(1, main.getCircuitComponent().getCircuit().getElements().size())))
 
                 // press save and the escape the save dialog (JFileChooser)
@@ -698,7 +697,7 @@ public class TestInGUI extends TestCase {
                 .delay(100)
                 .add(new GuiTester.WindowCheck<>(JDialog.class))
                 .press("ESCAPE")
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(1, main.getCircuitComponent().getCircuit().getElements().size())))
 
                 // press save and save the file
@@ -712,7 +711,7 @@ public class TestInGUI extends TestCase {
                 .typeTempFile("save.dig")
                 .press("ENTER")
                 .delay(100)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(0, main.getCircuitComponent().getCircuit().getElements().size())))
 
                 .execute();
@@ -734,7 +733,7 @@ public class TestInGUI extends TestCase {
                         c -> c instanceof JButton && ((JButton) c).getText().equals(Lang.get("btn_discard"))))
                 .press("SPACE")
                 .delay(100)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(0, main.getCircuitComponent().getCircuit().getElements().size())))
                 .execute();
     }
@@ -750,7 +749,7 @@ public class TestInGUI extends TestCase {
                 .press("ENTER")
                 .add(new ClickInputsAndOutputs())
                 .press("ESCAPE")
-                .add(new GuiTester.WindowCheck<>(Main.class, (guiTester, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (guiTester, main) -> {
                     final CircuitComponent cc = main.getCircuitComponent();
                     ArrayList<VisualElement> el = cc.getCircuit().getElements();
                     int n = 0;
@@ -782,7 +781,7 @@ public class TestInGUI extends TestCase {
                 .press("RIGHT")
                 .press("DOWN", 3)
                 .press("ENTER")
-                .add(new GuiTester.WindowCheck<>(Main.class, (guiTester, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (guiTester, main) -> {
                     final CircuitComponent cc = main.getCircuitComponent();
                     ArrayList<VisualElement> el = cc.getCircuit().getElements();
                     for (VisualElement ve : el)
@@ -796,7 +795,7 @@ public class TestInGUI extends TestCase {
                 .press("DOWN", 4)
                 .press("ENTER")
                 .mouseClick(InputEvent.BUTTON1_DOWN_MASK)
-                .add(new GuiTester.WindowCheck<>(Main.class,
+                .add(new GuiTester.WindowCheck<>(MainGui.class,
                         (gt, main) -> assertEquals(7, main.getCircuitComponent().getCircuit().getElements().size())))
                 .execute();
 
@@ -891,7 +890,7 @@ public class TestInGUI extends TestCase {
                 .type("6")
                 .press("ENTER")
                 .delay(500)
-                .add(new GuiTester.WindowCheck<>(Main.class, (guiTester, main) -> {
+                .add(new GuiTester.WindowCheck<>(MainGui.class, (guiTester, main) -> {
                     ArrayList<VisualElement> l = main.getCircuitComponent().getCircuit().getElements();
                     assertEquals(8, l.size());
                     for (VisualElement e : l)
@@ -1046,7 +1045,7 @@ public class TestInGUI extends TestCase {
                 })
                 .press("DOWN")
                 .press("SPACE")
-                .add(new GuiTester.WindowCheck<>(Main.class))
+                .add(new GuiTester.WindowCheck<>(MainGui.class))
                 .add(new GuiTester.CloseTopMost())
                 .add(new GuiTester.CloseTopMost())
                 .execute();
@@ -1065,10 +1064,10 @@ public class TestInGUI extends TestCase {
                 .delay(200)
                 .press("ENTER")
                 .delay(200)
-                .add(new GuiTester.WindowCheck<Main>(Main.class) {
+                .add(new GuiTester.WindowCheck<MainGui>(MainGui.class) {
                     @Override
-                    public void checkWindow(GuiTester guiTester, Main main) {
-                        List<VisualElement> e = main.getCircuitComponent().getCircuit()
+                    public void checkWindow(GuiTester guiTester, MainGui mainGui) {
+                        List<VisualElement> e = mainGui.getCircuitComponent().getCircuit()
                                 .getElements(v -> v.equalsDescription(Tunnel.DESCRIPTION));
                         assertEquals(3, e.size());
                         for (VisualElement v : e)
@@ -1139,7 +1138,7 @@ public class TestInGUI extends TestCase {
     }
 
     public void testRemoteInterface() throws InterruptedException, RemoteException {
-        Main m = new Main.MainBuilder()
+        MainGui m = new MainGui.MainBuilder()
                 .setFileToOpen(new File(Resources.getRoot(), "dig/remoteInterface/measure.dig"))
                 .build();
 
@@ -1162,7 +1161,7 @@ public class TestInGUI extends TestCase {
     }
 
     public void testRemoteInterface2() throws InterruptedException, RemoteException {
-        Main m = new Main.MainBuilder()
+        MainGui m = new MainGui.MainBuilder()
                 .setFileToOpen(new File(Resources.getRoot(), "dig/remoteInterface/measure.dig"))
                 .build();
 
@@ -1241,18 +1240,18 @@ public class TestInGUI extends TestCase {
         }
     }
 
-    private static class DrawCircuit extends GuiTester.WindowCheck<Main> {
+    private static class DrawCircuit extends GuiTester.WindowCheck<MainGui> {
         private final String filename;
 
         public DrawCircuit(String filename) {
-            super(Main.class);
+            super(MainGui.class);
             this.filename = filename;
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) throws InterruptedException, IOException {
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) throws InterruptedException, IOException {
             File file = new File(Resources.getRoot(), filename);
-            final ElementLibrary library = main.getCircuitComponent().getLibrary();
+            final ElementLibrary library = mainGui.getCircuitComponent().getLibrary();
             Circuit circuit = Circuit.loadCircuit(file, library.getShapeFactory());
 
             int xMin = Integer.MAX_VALUE;
@@ -1264,7 +1263,7 @@ public class TestInGUI extends TestCase {
                 if (w.p2.y < yMin) yMin = w.p2.y;
             }
 
-            Point loc = getCircuitPos(main);
+            Point loc = getCircuitPos(mainGui);
             xMin -= loc.x + SIZE * 5;
             yMin -= loc.y + SIZE * 2;
 
@@ -1282,7 +1281,7 @@ public class TestInGUI extends TestCase {
                 v.setPos(new Vector(0, 0));
                 final GraphicMinMax minMax = v.getMinMax(false);
                 pos = pos.add(minMax.getMax());
-                main.getCircuitComponent().setPartToInsert(v);
+                mainGui.getCircuitComponent().setPartToInsert(v);
                 guiTester.mouseClickNow(pos.x - xMin, pos.y - yMin, InputEvent.BUTTON1_DOWN_MASK);
                 Thread.sleep(400);
             }
@@ -1299,26 +1298,26 @@ public class TestInGUI extends TestCase {
         }
     }
 
-    private static Point getCircuitPos(Main main) {
+    private static Point getCircuitPos(MainGui mainGui) {
         Point ci = new Point();
-        SwingUtilities.convertPointToScreen(ci, main.getCircuitComponent());
+        SwingUtilities.convertPointToScreen(ci, mainGui.getCircuitComponent());
         Point ma = new Point();
         SwingUtilities.convertPointToScreen(ma, getBaseContainer());
         return new Point(ci.x - ma.x, ci.y - ma.y);
     }
 
-    private static class SelectAll extends GuiTester.WindowCheck<Main> {
+    private static class SelectAll extends GuiTester.WindowCheck<MainGui> {
         /**
          * Creates a new instance
          */
         public SelectAll() {
-            super(Main.class);
+            super(MainGui.class);
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) {
-            Point loc = getCircuitPos(main);
-            CircuitComponent c = main.getCircuitComponent();
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) {
+            Point loc = getCircuitPos(mainGui);
+            CircuitComponent c = mainGui.getCircuitComponent();
             guiTester.mouseMoveNow(loc.x + 2, loc.y + 2);
             guiTester.mousePressNow(InputEvent.BUTTON1_DOWN_MASK);
             guiTester.mouseMoveNow(loc.x + c.getWidth() - 2, loc.y + c.getHeight() - 2);
@@ -1326,14 +1325,14 @@ public class TestInGUI extends TestCase {
         }
     }
 
-    private static class CheckColorInCircuit extends GuiTester.WindowCheck<Main> {
+    private static class CheckColorInCircuit extends GuiTester.WindowCheck<MainGui> {
         private final ElementTypeDescription description;
         private final int dx;
         private final int dy;
         private final GuiTester.ColorCheckInterface cpi;
 
         public CheckColorInCircuit(ElementTypeDescription description, int dx, int dy, GuiTester.ColorCheckInterface cpi) {
-            super(Main.class);
+            super(MainGui.class);
             this.description = description;
             this.dx = dx;
             this.dy = dy;
@@ -1341,9 +1340,9 @@ public class TestInGUI extends TestCase {
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) throws Exception {
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) throws Exception {
             Thread.sleep(200);
-            List<VisualElement> el = main
+            List<VisualElement> el = mainGui
                     .getCircuitComponent()
                     .getCircuit()
                     .getElements(v -> v.equalsDescription(description));
@@ -1351,8 +1350,8 @@ public class TestInGUI extends TestCase {
             assertEquals("not exact one " + description.getName() + " found in circuit", 1, el.size());
 
             final Vector posInCirc = el.get(0).getPos().add(dx, dy);
-            Point p = main.getCircuitComponent().transform(posInCirc);
-            SwingUtilities.convertPointToScreen(p, main.getCircuitComponent());
+            Point p = mainGui.getCircuitComponent().transform(posInCirc);
+            SwingUtilities.convertPointToScreen(p, mainGui.getCircuitComponent());
 
             guiTester.getRobot().mouseMove(p.x, p.y);
             Thread.sleep(500);
@@ -1360,19 +1359,19 @@ public class TestInGUI extends TestCase {
         }
     }
 
-    public static class SetMouseToElement extends GuiTester.WindowCheck<Main> {
+    public static class SetMouseToElement extends GuiTester.WindowCheck<MainGui> {
         private final Circuit.ElementFilter filter;
 
         public SetMouseToElement(Circuit.ElementFilter filter) {
-            super(Main.class);
+            super(MainGui.class);
             this.filter = filter;
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) throws Exception {
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) throws Exception {
             Thread.sleep(200);
 
-            List<VisualElement> el = main
+            List<VisualElement> el = mainGui
                     .getCircuitComponent()
                     .getCircuit()
                     .getElements(filter);
@@ -1382,8 +1381,8 @@ public class TestInGUI extends TestCase {
             final VisualElement ve = el.get(0);
             GraphicMinMax mm = ve.getMinMax(false);
             Vector pos = mm.getMin().add(mm.getMax()).div(2);
-            Point p = main.getCircuitComponent().transform(pos);
-            SwingUtilities.convertPointToScreen(p, main.getCircuitComponent());
+            Point p = mainGui.getCircuitComponent().transform(pos);
+            SwingUtilities.convertPointToScreen(p, mainGui.getCircuitComponent());
 
             guiTester.getRobot().mouseMove(p.x, p.y);
         }
@@ -1396,10 +1395,10 @@ public class TestInGUI extends TestCase {
 
         @Override
         public void checkWindow(GuiTester guiTester, NumberingWizard window) throws Exception {
-            assertTrue(window.getParent() instanceof Main);
-            Main main = (Main) window.getParent();
+            assertTrue(window.getParent() instanceof MainGui);
+            MainGui mainGui = (MainGui) window.getParent();
 
-            final CircuitComponent cc = main.getCircuitComponent();
+            final CircuitComponent cc = mainGui.getCircuitComponent();
             ArrayList<VisualElement> el = cc.getCircuit().getElements();
             for (VisualElement ve : el)
                 if (ve.equalsDescription(In.DESCRIPTION) || ve.equalsDescription(Out.DESCRIPTION)) {
@@ -1414,17 +1413,17 @@ public class TestInGUI extends TestCase {
         }
     }
 
-    private static class PinNameChecker extends GuiTester.WindowCheck<Main> {
+    private static class PinNameChecker extends GuiTester.WindowCheck<MainGui> {
         private final String prefix;
 
         public PinNameChecker(String prefix) {
-            super(Main.class);
+            super(MainGui.class);
             this.prefix = prefix;
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) {
-            final CircuitComponent cc = main.getCircuitComponent();
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) {
+            final CircuitComponent cc = mainGui.getCircuitComponent();
             ArrayList<VisualElement> el = cc.getCircuit().getElements();
             for (VisualElement ve : el)
                 if (ve.equalsDescription(In.DESCRIPTION) || ve.equalsDescription(Out.DESCRIPTION))
@@ -1432,37 +1431,37 @@ public class TestInGUI extends TestCase {
         }
     }
 
-    private static class CheckOutputValue extends GuiTester.WindowCheck<Main> {
+    private static class CheckOutputValue extends GuiTester.WindowCheck<MainGui> {
         private final int val;
 
         public CheckOutputValue(int val) {
-            super(Main.class);
+            super(MainGui.class);
             this.val = val;
         }
 
         @Override
-        public void checkWindow(GuiTester guiTester, Main main) {
-            final ArrayList<Signal> outputs = main.getModel().getOutputs();
+        public void checkWindow(GuiTester guiTester, MainGui mainGui) {
+            final ArrayList<Signal> outputs = mainGui.getModel().getOutputs();
             assertEquals(1, outputs.size());
             assertEquals(val, outputs.get(0).getValue().getValue());
         }
     }
 
-    private static class AddTestCaseToCircuit extends GuiTester.WindowCheck<Main> {
+    private static class AddTestCaseToCircuit extends GuiTester.WindowCheck<MainGui> {
         private final String testdata;
 
         private AddTestCaseToCircuit(String testdata) {
-            super(Main.class);
+            super(MainGui.class);
             this.testdata = testdata;
         }
 
         @Override
-        public void checkWindow(GuiTester gt, Main main) {
+        public void checkWindow(GuiTester gt, MainGui mainGui) {
             try {
-                main.getCircuitComponent().getCircuit().add(
+                mainGui.getCircuitComponent().getCircuit().add(
                         new VisualElement(TestCaseElement.DESCRIPTION.getName())
                                 .setAttribute(TESTDATA, new TestCaseDescription(testdata))
-                                .setShapeFactory(main.getCircuitComponent().getLibrary().getShapeFactory()));
+                                .setShapeFactory(mainGui.getCircuitComponent().getLibrary().getShapeFactory()));
             } catch (IOException | ParserException e) {
                 throw new RuntimeException(e);
             }

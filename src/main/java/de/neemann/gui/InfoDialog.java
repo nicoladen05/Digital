@@ -5,6 +5,7 @@
  */
 package de.neemann.gui;
 
+import com.formdev.flatlaf.extras.FlatDesktop;
 import de.neemann.digital.lang.Lang;
 
 import javax.swing.*;
@@ -65,7 +66,7 @@ public final class InfoDialog implements Iterable<InfoDialog.Manifest> {
      * @param message the given message
      * @return message and added manifest infos
      */
-    private String createMessage(String message) {
+    public String createMessage(String message) {
         StringBuilder sb = new StringBuilder("<html>");
         sb.append(message.replace("\n\n", "<br/><br/>"));
         sb.append("<br/><br/>");
@@ -155,6 +156,9 @@ public final class InfoDialog implements Iterable<InfoDialog.Manifest> {
      * @return the help menu
      */
     public JMenuItem createMenuItem(final JFrame frame, final String message) {
+        FlatDesktop.setAboutHandler(() -> {
+            showInfo(frame, createMessage(message), revision);
+        });
         return new JMenuItem(new AbstractAction(Lang.get("menu_about")) {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

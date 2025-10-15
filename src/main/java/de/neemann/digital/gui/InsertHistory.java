@@ -57,6 +57,7 @@ public class InsertHistory implements LibraryListener {
                 wrappers.remove(oldest);
             }
         }
+        bar.updateUI();
     }
 
     private void removeWrapperFromToolBar(WrapperAction wrapper) {
@@ -65,6 +66,7 @@ public class InsertHistory implements LibraryListener {
         for (WrapperAction w : wrappers)
             if (w.componentPosition > position)
                 w.componentPosition--;
+        bar.updateUI();
     }
 
     private int findOldestIndex() {
@@ -117,6 +119,7 @@ public class InsertHistory implements LibraryListener {
             }
         }
         bar.revalidate();
+        bar.updateUI();
     }
 
     private final class WrapperAction extends AbstractAction {
@@ -127,6 +130,7 @@ public class InsertHistory implements LibraryListener {
         private WrapperAction(InsertAction action, int componentPosition) {
             super(action.getValue(Action.NAME).toString(), (Icon) action.getValue(Action.SMALL_ICON));
             this.action = action;
+            System.out.println(action);
             this.componentPosition = componentPosition;
             time = mainTime++;
         }

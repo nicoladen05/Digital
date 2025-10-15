@@ -9,7 +9,7 @@ import de.neemann.digital.core.*;
 import de.neemann.digital.core.element.Keys;
 import de.neemann.digital.draw.elements.VisualElement;
 import de.neemann.digital.draw.shapes.ShapeFactory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.ModelModifier;
 import de.neemann.digital.lang.Lang;
 import de.neemann.digital.testing.TestCaseDescription;
@@ -30,7 +30,7 @@ import java.io.IOException;
  */
 public class BehavioralFixtureCreator extends JDialog implements ModelModifier {
     private final JLabel frameLabel;
-    private final Main main;
+    private final MainGui mainGui;
     private final ShapeFactory shapeFactory;
     private final StringBuilder testCase;
     private int testLines;
@@ -42,9 +42,9 @@ public class BehavioralFixtureCreator extends JDialog implements ModelModifier {
      * @param parent       the parent frame
      * @param shapeFactory the shapeFactory used to create the test case component
      */
-    public BehavioralFixtureCreator(Main parent, ShapeFactory shapeFactory) {
+    public BehavioralFixtureCreator(MainGui parent, ShapeFactory shapeFactory) {
         super(parent, Lang.get("menu_createBehavioralFixture"), false);
-        main = parent;
+        mainGui = parent;
         this.shapeFactory = shapeFactory;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         frameLabel = new JLabel(Lang.get("msg_fixesCreated_N", testLines));
@@ -129,7 +129,7 @@ public class BehavioralFixtureCreator extends JDialog implements ModelModifier {
             VisualElement tc = new VisualElement(TestCaseElement.DESCRIPTION.getName())
                     .setShapeFactory(shapeFactory)
                     .setAttribute(Keys.TESTDATA, new TestCaseDescription(testCase.toString()));
-            SwingUtilities.invokeLater(() -> main.getCircuitComponent().setPartToInsert(tc));
+            SwingUtilities.invokeLater(() -> mainGui.getCircuitComponent().setPartToInsert(tc));
         } catch (IOException | ParserException e) {
             SwingUtilities.invokeLater(new ErrorMessage(Lang.get("msg_errorCreatingTestCase")).addCause(e));
         }
