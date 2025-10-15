@@ -124,42 +124,48 @@ public class KeyBindSettingsPanel extends JPanel {
         }
 
         JButton saveButton = new JButton("Speichern");
-        saveButton.addActionListener(e -> {
-            boolean allValid = true;
-
-            for (Map.Entry<String, JTextField> entry : fieldMap.entrySet()) {
-                String key = entry.getValue().getText().trim().toUpperCase();
-                JCheckBox shiftBox = shiftMap.get(entry.getKey());
-
-                if (!isValidKey(key)) {
-                    allValid = false;
-                    entry.getValue().setBackground(Color.PINK);
-                } else {
-                    entry.getValue().setBackground(Color.WHITE);
-                    String finalKey = (shiftBox.isSelected() ? "Shift+" : "") + key;
-                    keyBinds.put(entry.getKey(), finalKey);
-                }
-            }
-
-            if (allValid) {
-                saveSettings();
-                JOptionPane.showMessageDialog(this, "Keybinds gespeichert!");
-            } else {
-                JOptionPane.showMessageDialog(this,
-                        "Ungültige Key(s) gefunden. Bitte korrigiere die markierten Felder.",
-                        "Fehler", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+        saveButton.addActionListener(e -> saveKeybinds());
 
         JScrollPane scrollPane = new JScrollPane(listPanel);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        scrollPane.setPreferredSize(new Dimension(400, 300)); // feste Größe
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         add(scrollPane, BorderLayout.CENTER);
         add(saveButton, BorderLayout.SOUTH);
     }
 
+    /** Speichert Keybinds mit Validierung */
+    private void saveKeybinds() {
+        boolean allValid = true;
+
+        for (Map.Entry<String, JTextField> entry : fieldMap.entrySet()) {
+            String key = entry.getValue().getText().trim();
+            JCheckBox shiftBox = shiftMap.get(entry.getKey());
+
+            if (!isValidKey(key)) {
+                allValid = false;
+                entry.getValue().setBackground(Color.PINK);
+            } else {
+                entry.getValue().setBackground(Color.WHITE);
+                String finalKey = (shiftBox.isSelected() ? "Shift+" : "") + key;
+                keyBinds.put(entry.getKey(), finalKey);
+            }
+        }
+
+        if (allValid) {
+            saveSettings();
+            JOptionPane.showMessageDialog(this, "Keybinds gespeichert!");
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Ungültige Key(s) gefunden. Bitte korrigiere die markierten Felder.",
+                    "Fehler", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     /** Prüft, ob der Key nur eine normale Taste ist (ohne Modifier) */
     private boolean isValidKey(String key) {
-        return key.matches("[A-Z0-9]|F[1-9]|F1[0-2]");
+        return key.matches("[A-Z0-9]|F[1-9]|F1[0-2]|ENTER");
     }
 }
