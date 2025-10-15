@@ -1,3 +1,7 @@
+[![Download Digital](https://img.shields.io/badge/Download-Digital.zip-blue?style=for-the-badge&logo=github)](https://github.com/nicoladen05/Digital/releases/latest/download/Digital.zip)
+
+This fork adds new keyboard shortcuts for commonly used components. A list of all changed shortcuts can be found below.
+
 # Digital #
 
 Digital is an easy-to-use digital logic designer and circuit simulator designed for educational purposes.
@@ -6,10 +10,10 @@ Digital is an easy-to-use digital logic designer and circuit simulator designed 
 
 ![screnshot2](distribution/screenshot2.png)
 
-## [Download](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip) and Installation ##
+## [Download](https://github.com/nicoladen05/Digital/releases/latest/download/Digital.zip) and Installation ##
 
 There is no installation required, just unpack the *Digital.zip* file, which is available
-for [download](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip). On Linux start the shell
+for [download](https://github.com/nicoladen05/Digital/releases/latest/download/Digital.zip). On Linux start the shell
 script and on Windows and MacOS the JAR file can be started directly. A Java Runtime Environment (at least JRE 8) is
 required to run Digital. On Windows the easiest way to get Java is to install the binaries provided by the
 [Eclipse Temurin](https://adoptium.net/) project.
@@ -57,6 +61,42 @@ These are the main features of Digital:
 
 The latest changes that have not yet been released are listed in the
 [release notes](distribution/ReleaseNotes.txt).
+
+## New Shortcuts ##
+
+| Action            | Shortcut   |
+| ----------------- | ---------- |
+| And               | A          |
+| NAnd              | SHIFT+A    |
+| Or                | O          |
+| NOr               | SHIFT+O    |
+| XOr               | X          |
+| XNOr              | SHIFT+X    |
+| Not               | N          |
+| Output            | O          |
+| LED               | L          |
+| Input             | I          |
+| Clock             | C          |
+| Button            | B          |
+| PullUp            | SHIFT+P    |
+| PullDown          | P          |
+| RS-Flipflop       | R          |
+| Async RS-Flipflop | SHIFT+R    |
+| JK-Flipflop       | J          |
+| Async JK-Flipflop | SHIFT+J    |
+| D-Flipflop        | D          |
+| Async D-Flipflop  | SHIFT+D    |
+| T-Flipflop        | T          |
+| Monoflop          | M          |
+| Run               | CTRL+Enter |
+
+#### Shortcuts that were changed ####
+
+| Old Key | New Key |
+| ------- | ------- |
+| C       | CTRL+C  |
+| B       | CTRL+B  |
+
 
 ## Documentation ##
 
