@@ -27,6 +27,7 @@ public class LibrarySelector implements LibraryListener {
     private JMenu componentsMenu;
     private InsertHistory insertHistory;
     private CircuitComponent circuitComponent;
+    private Main main;
 
     /**
      * Creates a new library selector.
@@ -35,7 +36,8 @@ public class LibrarySelector implements LibraryListener {
      * @param library      the library to select elements from
      * @param shapeFactory The shape factory
      */
-    public LibrarySelector(ElementLibrary library, ShapeFactory shapeFactory) {
+    public LibrarySelector(ElementLibrary library, ShapeFactory shapeFactory, Main main) {
+        this.main = main;
         this.library = library;
         this.shapeFactory = shapeFactory;
     }
@@ -86,8 +88,17 @@ public class LibrarySelector implements LibraryListener {
 
     private void addComponents(JMenu parts, LibraryNode node) {
         if (node.isLeaf()) {
-            if (!node.isHidden())
-                parts.add(new InsertAction(node, insertHistory, circuitComponent, shapeFactory).createJMenuItem());
+            if (!node.isHidden()) {
+                InsertAction insertAction = new InsertAction(node, insertHistory, circuitComponent, shapeFactory);
+
+                JMenuItem jMenuItem = insertAction.createJMenuItem();
+
+                if (node.getKey() != null) {
+                    insertAction.setAccelerator(node.getKey()).enableAcceleratorIn(main.getCircuitComponent());
+                }
+
+                parts.add(jMenuItem);
+            }
         } else {
             JMenu subMenu = new JMenu(node.getName());
             for (LibraryNode child : node)

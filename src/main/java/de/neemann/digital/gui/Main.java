@@ -242,7 +242,7 @@ public final class Main extends JFrame implements ClosingWindowListener.ConfirmS
 
         insertHistory = new InsertHistory(toolBar, library);
         library.addListener(insertHistory);
-        final LibrarySelector librarySelector = new LibrarySelector(library, shapeFactory);
+        final LibrarySelector librarySelector = new LibrarySelector(library, shapeFactory, this);
         library.addListener(librarySelector);
         menuBar.add(librarySelector.buildMenu(insertHistory, circuitComponent));
 
@@ -382,6 +382,7 @@ public final class Main extends JFrame implements ClosingWindowListener.ConfirmS
             }
         }.setAcceleratorCTRLplus("MINUS").enableAcceleratorIn(circuitComponent);
         circuitComponent.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_SUBTRACT, getCTRLMask()), zoomOut);
+
 
         ToolTipAction viewHelp = new ToolTipAction(Lang.get("menu_viewHelp"), ICON_HELP) {
             @Override

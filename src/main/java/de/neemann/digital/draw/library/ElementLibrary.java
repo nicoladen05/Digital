@@ -115,7 +115,7 @@ public class ElementLibrary implements Iterable<ElementLibrary.ElementContainer>
         root = new LibraryNode(Lang.get("menu_elements"))
                 .setLibrary(this)
                 .add(new LibraryNode(Lang.get("lib_Logic"))
-                        .add(And.DESCRIPTION)
+                        .add(And.DESCRIPTION, "U")
                         .add(NAnd.DESCRIPTION)
                         .add(Or.DESCRIPTION)
                         .add(NOr.DESCRIPTION)

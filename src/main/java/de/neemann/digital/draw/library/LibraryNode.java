@@ -40,6 +40,7 @@ public class LibraryNode implements Iterable<LibraryNode> {
     private ElementTypeDescription description;
     private String toolTipText;
     private ImageIcon icon;
+    private String key = null;
     private ElementLibrary library;
     private LibraryNode parent;
     private boolean unique;
@@ -108,9 +109,26 @@ public class LibraryNode implements Iterable<LibraryNode> {
         return this;
     }
 
+    LibraryNode add(LibraryNode node, String key) {
+        children.add(node);
+        node.key = key;
+        node.parent = this;
+        node.setLibrary(library);
+        return this;
+    }
+
     LibraryNode add(ElementTypeDescription node) {
         add(new LibraryNode(node));
         return this;
+    }
+
+    LibraryNode add(ElementTypeDescription node, String key) {
+        add(new LibraryNode(node), key);
+        return this;
+    }
+
+    public String getKey() {
+        return this.key;
     }
 
     /**
