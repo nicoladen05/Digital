@@ -1,5 +1,3 @@
-[![Download](distribution/Download.svg)](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip)
-
 # Digital #
 
 Digital is an easy-to-use digital logic designer and circuit simulator designed for educational purposes.
