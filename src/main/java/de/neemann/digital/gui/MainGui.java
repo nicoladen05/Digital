@@ -2230,6 +2230,7 @@ public final class MainGui extends JFrame implements ClosingWindowListener.Confi
     /**
      * Starts the main app
      *
+     * @param splashFrame the splashFrame
      * @param args the arguments
      */
     public static void main(JFrame splashFrame, String[] args) {
