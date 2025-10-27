@@ -134,7 +134,7 @@ public class KeybindManager {
             JMenuItem instance = component.getItem(i);
             if (instance.getText().equals(name))
                 return instance;
-            if (instance instanceof JMenu sub){
+            if (instance instanceof JMenu sub) {
                 JMenuItem tempResult = getJMenuByName(name, sub);
                 if (tempResult != null)
                     return tempResult;
