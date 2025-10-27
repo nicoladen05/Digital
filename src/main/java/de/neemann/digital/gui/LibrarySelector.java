@@ -122,7 +122,7 @@ public class LibrarySelector implements LibraryListener {
         return componentsMenu;
     }
 
-    public Main getMain() {
+    public MainGui getMain() {
         return main;
     }
 }
