@@ -27,6 +27,7 @@ public class GraphicSVG extends Graphic {
     private BufferedWriter w;
     private TextStyle textStyle = new TextFormatSVG();
     private ColorStyle colorStyle = Style::getColor;
+    private boolean drawBackground;
 
     /**
      * Creates a new instance.
@@ -105,9 +106,8 @@ public class GraphicSVG extends Graphic {
                     + "   xmlns=\"http://www.w3.org/2000/svg\"\n");
             double width = (max.getXFloat() - min.getXFloat() + Style.MAXLINETHICK) * svgScale / 100.0;
             double height = (max.getYFloat() - min.getYFloat() + Style.MAXLINETHICK) * svgScale / 100.0;
-
+            final Color background = ColorScheme.getSelected().getColor(ColorKey.BACKGROUND);
             final int lineCorr = Style.MAXLINETHICK / 2;
-
             w.write("   width=\"" + width + "mm\"\n"
                     + "   height=\"" + height + "mm\"\n"
                     + "   viewBox=\"" + (min.getX() - lineCorr)
@@ -115,6 +115,8 @@ public class GraphicSVG extends Graphic {
                     + " " + (max.getX() - min.getX() + Style.MAXLINETHICK)
                     + " " + (max.getY() - min.getY() + Style.MAXLINETHICK) + "\">\n");
             w.write("<g stroke-linecap=\"square\">\n");
+            if (drawBackground)
+                w.write("<style>svg { background-color: " + String.format("#%02x%02x%02x", background.getRed(), background.getGreen(), background.getBlue()) + "; }</style>");
             return this;
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -16,7 +16,7 @@
 							margin-top="1.3cm" margin-bottom="1.8cm"
 							margin-left="0cm" margin-right="0cm"/>
 					<fo:region-before region-name="header" extent="1.3cm"/>
-					<fo:region-after region-name="footer" extent="1.5cm"/>
+<!--					<fo:region-after region-name="footer" extent="1.5cm"/>-->
 					<fo:region-start  region-name="left"   extent="0cm"/>
 					<fo:region-end    region-name="right"  extent="0cm"/>
 				</fo:simple-page-master>

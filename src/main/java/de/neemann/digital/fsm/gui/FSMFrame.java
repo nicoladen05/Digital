@@ -39,14 +39,14 @@ import java.util.prefs.Preferences;
 public class FSMFrame extends JFrame implements ClosingWindowListener.ConfirmSave, FSM.ModifiedListener, FileHistory.OpenInterface {
     private static final Preferences PREFS = Preferences.userRoot().node("dig").node("fsm");
     private static final String PREF_FOLDER = "folder";
-    private static final Icon ICON_NEW = IconCreator.create("document-new.png");
-    private static final Icon ICON_OPEN = IconCreator.create("document-open.png");
-    private static final Icon ICON_SAVE = IconCreator.create("document-save.png");
-    private static final Icon ICON_SAVE_AS = IconCreator.create("document-save-as.png");
-    private static final Icon ICON_EXPAND = IconCreator.create("View-zoom-fit.png");
-    private static final Icon ICON_ZOOM_IN = IconCreator.create("View-zoom-in.png");
-    private static final Icon ICON_ZOOM_OUT = IconCreator.create("View-zoom-out.png");
-    private static final Icon ICON_HELP = IconCreator.create("help.png");
+    private static final Icon ICON_NEW = IconCreator.createSVG("new_file");
+    private static final Icon ICON_OPEN = IconCreator.createSVG("open_folder");
+    private static final Icon ICON_SAVE = IconCreator.createSVG("save");
+    private static final Icon ICON_SAVE_AS = IconCreator.createSVG("save_as");
+    private static final Icon ICON_EXPAND = IconCreator.createSVG("zoom_fit");
+    private static final Icon ICON_ZOOM_IN = IconCreator.createSVG("zoom_in");
+    private static final Icon ICON_ZOOM_OUT = IconCreator.createSVG("zoom_out");
+    private static final Icon ICON_HELP = IconCreator.createSVG("help");
 
     private final FileHistory fileHistory;
     private final FSMComponent fsmComponent;
@@ -413,7 +413,7 @@ public class FSMFrame extends JFrame implements ClosingWindowListener.ConfirmSav
             });
         }
 
-        if (Main.isExperimentalMode()) {
+        if (MainGui.isExperimentalMode()) {
             create.add(new ToolTipAction(Lang.get("menu_fsm_oneBitPerState")) {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {

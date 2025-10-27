@@ -23,7 +23,6 @@ import de.neemann.digital.draw.shapes.CustomCircuitShapeType;
 import de.neemann.digital.draw.shapes.custom.CustomShapeDescription;
 import de.neemann.digital.gui.components.data.ScopeTrigger;
 import de.neemann.digital.testing.TestCaseDescription;
-import de.neemann.gui.Screen;
 import de.neemann.gui.language.Language;
 
 import java.awt.*;
@@ -739,7 +738,7 @@ public final class Keys {
      * the screen resolution
      */
     public static final Key<Integer> SETTINGS_FONT_SCALING =
-            new Key.KeyInteger("fontSize", Screen.getDefaultFontScaling())
+            new Key.KeyInteger("fontSize", 100)
                     .setComboBoxValues(100, 120, 150, 180, 200, 250, 300)
                     .setMin(50)
                     .setMax(400)

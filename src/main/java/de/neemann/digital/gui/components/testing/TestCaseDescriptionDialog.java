@@ -8,7 +8,7 @@ package de.neemann.digital.gui.components.testing;
 import de.neemann.digital.core.element.Keys;
 import de.neemann.digital.draw.elements.PinException;
 import de.neemann.digital.draw.elements.VisualElement;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.components.CircuitComponent;
 import de.neemann.digital.gui.components.TextLineNumber;
 import de.neemann.digital.gui.components.modification.ModifyAttribute;
@@ -92,12 +92,12 @@ public class TestCaseDescriptionDialog extends JDialog {
             }
         }.createJButton());
 
-        if (Main.isExperimentalMode()) {
+        if (MainGui.isExperimentalMode()) {
             buttons.add(new ToolTipAction(Lang.get("btn_addTransitions")) {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (parent instanceof Main) {
-                        CircuitComponent cc = ((Main) parent).getCircuitComponent();
+                    if (parent instanceof MainGui) {
+                        CircuitComponent cc = ((MainGui) parent).getCircuitComponent();
                         try {
                             Transitions tr = new Transitions(text.getText(), cc.getCircuit().getInputNames());
                             if (tr.isNew()) {
@@ -123,8 +123,8 @@ public class TestCaseDescriptionDialog extends JDialog {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        if (parent instanceof Main) {
-                            CircuitComponent cc = ((Main) parent).getCircuitComponent();
+                        if (parent instanceof MainGui) {
+                            CircuitComponent cc = ((MainGui) parent).getCircuitComponent();
                             element.getElementAttributes().set(Keys.TESTDATA, new TestCaseDescription(text.getText()));
                             circuitModified = true;
                             cc.getMain().startTests();
@@ -143,8 +143,8 @@ public class TestCaseDescriptionDialog extends JDialog {
                     modifiedData = new TestCaseDescription(text.getText());
                     if (element != null
                             && isStateChanged()
-                            && parent instanceof Main) {
-                        CircuitComponent cc = ((Main) parent).getCircuitComponent();
+                            && parent instanceof MainGui) {
+                        CircuitComponent cc = ((MainGui) parent).getCircuitComponent();
                         cc.modify(new ModifyAttribute<>(element, Keys.TESTDATA, modifiedData));
                     }
                     dispose();

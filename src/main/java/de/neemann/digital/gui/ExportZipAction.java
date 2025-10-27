@@ -31,7 +31,7 @@ import java.util.zip.ZipOutputStream;
  * Used to export zip files
  */
 public class ExportZipAction extends ToolTipAction {
-    private final Main main;
+    private final MainGui mainGui;
     private final ArrayList<Key<File>> fileKeyList;
     private ElementLibrary lib;
     private HashSet<String> elementSet;
@@ -41,11 +41,11 @@ public class ExportZipAction extends ToolTipAction {
     /**
      * creates a new instance
      *
-     * @param main the main window
+     * @param mainGui the main window
      */
-    public ExportZipAction(Main main) {
+    public ExportZipAction(MainGui mainGui) {
         super(Lang.get("menu_exportZIP"));
-        this.main = main;
+        this.mainGui = mainGui;
         setToolTip(Lang.get("menu_exportZIP_tt"));
 
         fileKeyList = new ArrayList<>();
@@ -56,12 +56,12 @@ public class ExportZipAction extends ToolTipAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFileChooser fc = new JFileChooser(main.getBaseFileName());
+        JFileChooser fc = new JFileChooser(mainGui.getBaseFileName());
         fc.setFileFilter(new FileNameExtensionFilter("ZIP", "zip"));
-        new SaveAsHelper(main, fc, "zip").checkOverwrite(file -> {
+        new SaveAsHelper(mainGui, fc, "zip").checkOverwrite(file -> {
             try (ZipOutputStream zip = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
-                Circuit circuit = main.getCircuitComponent().getCircuit();
-                lib = main.getCircuitComponent().getLibrary();
+                Circuit circuit = mainGui.getCircuitComponent().getCircuit();
+                lib = mainGui.getCircuitComponent().getLibrary();
                 origin = circuit.getOrigin();
                 elementSet = new HashSet<>();
                 addedFiles = new HashSet<>();

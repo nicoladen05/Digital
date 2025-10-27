@@ -12,7 +12,7 @@ import de.neemann.digital.draw.shapes.custom.CustomShapeDescription;
 import de.neemann.digital.draw.shapes.custom.svg.SvgException;
 import de.neemann.digital.draw.shapes.custom.svg.SvgImporter;
 import de.neemann.digital.draw.shapes.custom.svg.SvgTemplate;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.SaveAsHelper;
 import de.neemann.digital.lang.Lang;
 import de.neemann.gui.ErrorMessage;
@@ -64,9 +64,9 @@ public class CustomShapeEditor extends EditorFactory.LabelEditor<CustomShapeDesc
                     lastSVGFile = fc.getSelectedFile();
                     try {
                         CustomShapeDescription csd = new SvgImporter(fc.getSelectedFile()).create();
-                        final Main main = getAttributeDialog().getMain();
-                        if (main != null) {
-                            csd.checkCompatibility(main.getCircuitComponent().getCircuit());
+                        final MainGui mainGui = getAttributeDialog().getMain();
+                        if (mainGui != null) {
+                            csd.checkCompatibility(mainGui.getCircuitComponent().getCircuit());
                             customShapeDescription = csd;
                         }
                     } catch (IOException | SvgException | PinException e1) {
@@ -82,11 +82,11 @@ public class CustomShapeEditor extends EditorFactory.LabelEditor<CustomShapeDesc
                 JFileChooser fc = getjFileChooser();
                 if (fc.showSaveDialog(getAttributeDialog()) == JFileChooser.APPROVE_OPTION) {
                     try {
-                        final Main main = getAttributeDialog().getMain();
-                        if (main != null) {
+                        final MainGui mainGui = getAttributeDialog().getMain();
+                        if (mainGui != null) {
                             File file = SaveAsHelper.checkSuffix(fc.getSelectedFile(), "svg");
                             lastSVGFile = file;
-                            try (SvgTemplate tc = new SvgTemplate(file, main.getCircuitComponent().getCircuit())) {
+                            try (SvgTemplate tc = new SvgTemplate(file, mainGui.getCircuitComponent().getCircuit())) {
                                 tc.create();
                             }
                         }

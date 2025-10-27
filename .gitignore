@@ -83,3 +83,4 @@ nbactions.xml
 .project
 .settings
 .vscode
+.DS_Store

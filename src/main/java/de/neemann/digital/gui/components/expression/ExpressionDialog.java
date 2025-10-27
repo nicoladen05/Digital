@@ -12,7 +12,7 @@ import de.neemann.digital.builder.circuit.CircuitBuilder;
 import de.neemann.digital.draw.elements.Circuit;
 import de.neemann.digital.draw.library.ElementLibrary;
 import de.neemann.digital.draw.shapes.ShapeFactory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.components.table.ShowStringDialog;
 import de.neemann.digital.lang.Lang;
 import de.neemann.gui.ErrorMessage;
@@ -40,7 +40,7 @@ public class ExpressionDialog extends JDialog {
      * @param shapeFactory the shapeFactory used for new circuits
      * @param baseFilename filename used as base for file operations
      */
-    public ExpressionDialog(Main parent, ElementLibrary library, ShapeFactory shapeFactory, File baseFilename) {
+    public ExpressionDialog(MainGui parent, ElementLibrary library, ShapeFactory shapeFactory, File baseFilename) {
         super(parent, Lang.get("expression"), false);
 
         String exampleEquation = "(C ∨ B) ∧ (A ∨ C) ∧ (B ∨ !C) * (C + !A)";
@@ -74,7 +74,7 @@ public class ExpressionDialog extends JDialog {
                         for (Expression exp : expList)
                             circuitBuilder.addCombinatorial(FormatToExpression.defaultFormat(exp), exp);
                     Circuit circuit = circuitBuilder.createCircuit();
-                    new Main.MainBuilder()
+                    new MainGui.MainBuilder()
                             .setParent(parent)
                             .setLibrary(library)
                             .setCircuit(circuit)

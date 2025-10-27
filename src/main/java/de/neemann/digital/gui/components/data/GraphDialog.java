@@ -37,9 +37,9 @@ public class GraphDialog extends JDialog implements Observer {
     private final GraphComponent graphComponent;
     private final ToolTipAction showTable;
 
-    private static final Icon ICON_EXPAND = IconCreator.create("View-zoom-fit.png");
-    private static final Icon ICON_ZOOM_IN = IconCreator.create("View-zoom-in.png");
-    private static final Icon ICON_ZOOM_OUT = IconCreator.create("View-zoom-out.png");
+    private static final Icon ICON_EXPAND = IconCreator.createSVG("zoom_fit");
+    private static final Icon ICON_ZOOM_IN = IconCreator.createSVG("zoom_in");
+    private static final Icon ICON_ZOOM_OUT = IconCreator.createSVG("zoom_out");
 
     private ValueTable.ColumnInfo[] columnInfo;
 

@@ -7,7 +7,7 @@ package de.neemann.digital.gui.components.testing;
 
 import de.neemann.digital.draw.library.ElementLibrary;
 import de.neemann.digital.draw.shapes.ShapeFactory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.lang.Lang;
 import de.neemann.digital.testing.FolderTestRunner;
 
@@ -83,7 +83,7 @@ public class TestAllDialog extends JDialog {
         int row = table.getSelectedRow();
         if (row >= 0) {
             File f = folderTestRunner.getFiles().get(row).getFile();
-            new Main.MainBuilder()
+            new MainGui.MainBuilder()
                     .setParent(frame)
                     .setFileToOpen(f)
                     .setLibrary(library)

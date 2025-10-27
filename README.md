@@ -1,6 +1,12 @@
 [![Download Digital](https://img.shields.io/badge/Download-Digital.zip-blue?style=for-the-badge&logo=github)](https://github.com/nicoladen05/Digital/releases/latest/download/Digital.zip)
 
-This fork adds new keyboard shortcuts for commonly used components. A list of all changed shortcuts can be found below.
+This fork adds the following features:
+- New keyboard shortcuts for commonly used components. A list of all changed shortcuts can be found below.
+- Improved UI using [aidanwd4's fork](https://github.com/aidanwd4/Digital):
+  - Modern UI
+  - Full dark mode support
+  - Improved scaling on Windows
+  - Menubar support on MacOS
 
 # Digital #
 
@@ -293,7 +299,7 @@ Many thanks to the following persons for their help:
 * XinJun Ma ([@itviewer](https://github.com/itviewer)) has provided the Chinese translation.
 * Nicolas Maltais ([@maltaisn](https://github.com/maltaisn)) has provided the French translation.
 * Luca Cavallari ([@psiwray](https://github.com/psiwray)) has provided the Italian translation.
-
+* [Icons8](https://icons8.com/) for providing the material icons used in the remastered user interface.
 ## Additional Screenshots
 
 ![screnshot3](distribution/screenshot3.png)

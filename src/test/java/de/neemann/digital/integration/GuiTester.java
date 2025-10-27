@@ -7,7 +7,7 @@ package de.neemann.digital.integration;
 
 import de.neemann.digital.draw.elements.Circuit;
 import de.neemann.digital.gui.FileHistory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import junit.framework.Assert;
 
 import javax.swing.FocusManager;
@@ -26,7 +26,7 @@ import static org.junit.Assert.*;
 public class GuiTester {
     private static final long SLEEP_TIME = 200;
     private final ArrayList<Runnable> runnableList;
-    private Main main;
+    private MainGui mainGui;
     private String filename;
     private final String displayName;
     private Robot robot;
@@ -172,14 +172,14 @@ public class GuiTester {
                 SwingUtilities.invokeAndWait(() -> {
                     if (filename != null) {
                         File file = new File(Resources.getRoot(), filename);
-                        main = new Main.MainBuilder().setFileToOpen(file).build();
+                        mainGui = new MainGui.MainBuilder().setFileToOpen(file).build();
                         if (displayName != null)
-                            SwingUtilities.invokeLater(() -> main.setTitle(displayName + " - Digital"));
+                            SwingUtilities.invokeLater(() -> mainGui.setTitle(displayName + " - Digital"));
                     } else
-                        main = new Main.MainBuilder().setCircuit(new Circuit()).build();
-                    main.setSize(1024, 768);
-                    main.setLocationRelativeTo(null);
-                    main.setVisible(true);
+                        mainGui = new MainGui.MainBuilder().setCircuit(new Circuit()).build();
+                    mainGui.setSize(1024, 768);
+                    mainGui.setLocationRelativeTo(null);
+                    mainGui.setVisible(true);
                 });
                 Thread.sleep(500);
                 try {
@@ -196,7 +196,7 @@ public class GuiTester {
                         r.run(this);
                     }
                 } finally {
-                    SwingUtilities.invokeAndWait(() -> main.dispose());
+                    SwingUtilities.invokeAndWait(() -> mainGui.dispose());
                 }
                 System.err.println();
             } catch (Exception e) {

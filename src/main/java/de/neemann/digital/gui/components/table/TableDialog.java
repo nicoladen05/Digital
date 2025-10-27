@@ -36,7 +36,7 @@ import de.neemann.digital.draw.graphics.text.Parser;
 import de.neemann.digital.draw.graphics.text.formatter.PlainTextFormatter;
 import de.neemann.digital.draw.library.ElementLibrary;
 import de.neemann.digital.draw.shapes.ShapeFactory;
-import de.neemann.digital.gui.Main;
+import de.neemann.digital.gui.MainGui;
 import de.neemann.digital.gui.SaveAsHelper;
 import de.neemann.digital.gui.components.AttributeDialog;
 import de.neemann.digital.gui.components.ElementOrderer;
@@ -189,7 +189,7 @@ public class TableDialog extends JDialog {
         sizeMenu.add(sequential);
         for (int i = 2; i <= 8; i++)
             sequential.add(new JMenuItem(new SizeSequentialAction(i)));
-        if (Main.isExperimentalMode()) {
+        if (MainGui.isExperimentalMode()) {
             JMenu sequentialBiDir = new JMenu(Lang.get("menu_table_new_sequential_bidir"));
             sizeMenu.add(sequentialBiDir);
             for (int i = 2; i <= 8; i++)
@@ -565,7 +565,7 @@ public class TableDialog extends JDialog {
             }.createJMenuItem());
         }
 
-        if (Main.isExperimentalMode()) {
+        if (MainGui.isExperimentalMode()) {
             createSpecial.add(new ToolTipAction(Lang.get("menu_table_createNOr")) {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -654,7 +654,7 @@ public class TableDialog extends JDialog {
                     .create(lastGeneratedExpressions);
             Circuit circuit = circuitBuilder.createCircuit();
 
-            new Main.MainBuilder()
+            new MainGui.MainBuilder()
                     .setParent(TableDialog.this)
                     .setLibrary(library)
                     .setCircuit(circuit)

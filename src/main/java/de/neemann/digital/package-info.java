@@ -7,7 +7,7 @@
 /**
  * Digital is build from several packages:
  * <p>
- * The package gui contains all the GUI classes. The class {@link de.neemann.digital.gui.Main} contains the
+ * The package gui contains all the GUI classes. The class {@link de.neemann.digital.gui.MainGui} contains the
  * main method and the generation of the main frame. One of the more important class is
  * {@link de.neemann.digital.gui.components.CircuitComponent}. This class is used to draw the circuit.
  * <p>

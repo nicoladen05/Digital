@@ -5,6 +5,7 @@
  */
 package de.neemann.gui;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +34,20 @@ public final class IconCreator {
      */
     public static Icon create(String name) {
         return new ImageIcon(createImage(name));
+    }
+
+    /**
+     * Creates a vector icon from a resource
+     *
+     * @param name name of the resource
+     * @return the icon
+     */
+    public static Icon createSVG(String name) {
+        final float scaling = Screen.getInstance().getScaling();
+        int fitSize = 28;
+        int w = (int) (fitSize * scaling);
+        int h = (int) (fitSize * scaling);
+        return new FlatSVGIcon(ClassLoader.getSystemResource("icons/svgs/" + name + ".svg")).derive(w, h);
     }
 
     /**

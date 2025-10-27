@@ -71,8 +71,8 @@ public class GraphComponent extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, getWidth(), getHeight());
+//        g.setColor(Color.WHITE);
+//        g.fillRect(0, 0, getWidth(), getHeight());
 
         plotter.drawTo(new GraphicSwing(g2), null);
     }
