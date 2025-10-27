@@ -7,6 +7,7 @@ This fork adds the following features:
   - Full dark mode support
   - Improved scaling on Windows
   - Menubar support on MacOS
+- New Settings Panel to edit and save Keybinds
 
 # Digital #
 
@@ -69,32 +70,32 @@ The latest changes that have not yet been released are listed in the
 [release notes](distribution/ReleaseNotes.txt).
 
 ## New Shortcuts ##
+| Action            | Shortcut                           |
+| ----------------- |------------------------------------|
+| And               | <kbd>A</kbd>                       |
+| NAnd              | <kbd>Shift</kbd> + <kbd>A</kbd>    |
+| Or                | <kbd>O</kbd>                       |
+| NOr               | <kbd>Shift</kbd> + <kbd>O</kbd>    |
+| XOr               | <kbd>X</kbd>                       |
+| XNOr              | <kbd>Shift</kbd> + <kbd>X</kbd>    |
+| Not               | <kbd>N</kbd>                       |
+| Output            | <kbd>U</kbd>                       |
+| LED               | <kbd>L</kbd>                       |
+| Input             | <kbd>I</kbd>                       |
+| Clock             | <kbd>C</kbd>                       |
+| Button            | <kbd>B</kbd>                       |
+| PullUp            | <kbd>Shift</kbd> + <kbd>P</kbd>    |
+| PullDown          | <kbd>P</kbd>                       |
+| RS-Flipflop       | <kbd>R</kbd>                       |
+| Async RS-Flipflop | <kbd>Shift</kbd> + <kbd>R</kbd>    |
+| JK-Flipflop       | <kbd>J</kbd>                       |
+| Async JK-Flipflop | <kbd>Shift</kbd> + <kbd>J</kbd>    |
+| D-Flipflop        | <kbd>D</kbd>                       |
+| Async D-Flipflop  | <kbd>Shift</kbd> + <kbd>D</kbd>    |
+| T-Flipflop        | <kbd>T</kbd>                       |
+| Monoflop          | <kbd>M</kbd>                       |
+| Run               | <kbd>Ctrl</kbd> + <kbd>Enter</kbd> |
 
-| Action            | Shortcut   |
-| ----------------- | ---------- |
-| And               | A          |
-| NAnd              | SHIFT+A    |
-| Or                | O          |
-| NOr               | SHIFT+O    |
-| XOr               | X          |
-| XNOr              | SHIFT+X    |
-| Not               | N          |
-| Output            | O          |
-| LED               | L          |
-| Input             | I          |
-| Clock             | C          |
-| Button            | B          |
-| PullUp            | SHIFT+P    |
-| PullDown          | P          |
-| RS-Flipflop       | R          |
-| Async RS-Flipflop | SHIFT+R    |
-| JK-Flipflop       | J          |
-| Async JK-Flipflop | SHIFT+J    |
-| D-Flipflop        | D          |
-| Async D-Flipflop  | SHIFT+D    |
-| T-Flipflop        | T          |
-| Monoflop          | M          |
-| Run               | CTRL+Enter |
 
 #### Shortcuts that were changed ####
 
