@@ -70,6 +70,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.text.DefaultEditorKit;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -317,6 +318,11 @@ public final class MainGui extends JFrame implements ClosingWindowListener.Confi
             setLocationRelativeTo(null);
 
         checkIDEIntegration(builder, menuBar);
+
+        // Prefetch the file dialog
+        SwingUtilities.invokeLater(() -> {
+            new Thread(() -> new JFileChooser()).start();
+        });
     }
 
     private void checkIDEIntegration(MainBuilder builder, JMenuBar menuBar) {
