@@ -368,7 +368,7 @@ public final class MainGui extends JFrame implements ClosingWindowListener.Confi
                     }
                 }
             }
-        }.setAcceleratorCTRLplus("C").enableAcceleratorIn(circuitComponent);
+        }.setAcceleratorCTRLplus("Q").enableAcceleratorIn(circuitComponent);
     }
 
     private void createViewMenu(JMenuBar menuBar, JToolBar toolBar, boolean presentationModeDefault) {
